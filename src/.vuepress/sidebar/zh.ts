@@ -6,8 +6,8 @@ export const zhSidebar = sidebar({
         prefix: "",
         children: "structure",
     }],
-    "/zh/academic/": [{
-        text: "学术",
+    "/zh/research/": [{
+        text: "研究",
         prefix: "",
         children: "structure",
     }],

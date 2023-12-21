@@ -6,8 +6,8 @@ export const enSidebar = sidebar({
         prefix: "",
         children: "structure",
     }],
-    "/academic/": [{
-        text: "Academic",
+    "/research/": [{
+        text: "Research",
         prefix: "",
         children: "structure",
     }],
