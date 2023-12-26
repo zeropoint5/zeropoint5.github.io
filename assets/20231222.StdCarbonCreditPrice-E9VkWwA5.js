@@ -1,0 +1,1 @@
+const s="/assets/images/2023/20231221.CarbonPrice.png",a="/assets/images/2023/20231221.CarbonPriveCoverage.png",e="/assets/images/2023/20231222.CarbonRevenue.png",t="/assets/images/2023/20231222.CarbonCoverage.png",o="/assets/images/2023/20231222.CarbonCreditTrends.png",r="/assets/images/2023/20231222.StdCarbonCreditPrice.png";export{r as _,s as a,a as b,e as c,t as d,o as e};
