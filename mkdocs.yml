@@ -1,0 +1,4 @@
+site_name: zeropoint5
+nav:
+  - Home: index.md
+  - About: about.md
