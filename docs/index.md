@@ -1,17 +1,20 @@
-# Welcome to MkDocs
+# 欢迎来到 1/2 站台
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+这是一个用于记录一些技术文档的站台，主要包括我写的一些笔记和开源项目
 
-## Commands
+<div class="pt-2 pb-4 px-4 my-4 bg-body-tertiary rounded-3">
+<h2 class="text-center">开源项目</h2>
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body">
+        <h3 class="card-title">Whisper Transcribe</h3>
+        <p class="card-text">
+            利用 OpenAI 的 Whisper 模型把音视频转 SRT 字幕的工具：<a href="https://github.com/zeropoint5/whisper-api-tool">whisper-api-tool</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
