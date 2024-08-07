@@ -1,6 +1,34 @@
 site_name: zeropoint5
+
+theme:
+  name: material
+  logo: img/logo.png
+  favicon: img/logo.png
+  features:
+  - navigation.tabs
+  - search.suggest
+  - search.highlight
+  navigation_depth: 0
+  toc_depth: 0
+  language: zh
+  palette:
+    - scheme: default
+      primary: light blue
+      accent: blue
+
+markdown_extensions:
+  - toc:
+      permalink: false
+      toc_depth: 0
+
+extra:
+  generator: false
+
 nav:
-  - Home: index.md
-  - About: about.md
-extra_css:
-  - css/custom.css
+  - 首页: index.md
+  - 博客:
+    - blog/index.md
+  - 关于: about.md
+
+plugins:
+  - search
