@@ -26,5 +26,15 @@
       </div>
     </div>
   </div>
+  <div class="col">
+    <div class="card h-100">
+      <div class="card-body">
+        <h3 class="card-title">ArXiv Tracker</h3>
+        <p class="card-text">
+            自动跟踪和总结 arXiv 上特定领域的最新研究论文：<a href="https://zeropoint5.github.io/arxiv_tracker/">ArXiv Daily Tracker</a>
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
 </div>
