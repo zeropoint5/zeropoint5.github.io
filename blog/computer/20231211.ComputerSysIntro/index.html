@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#1-cpu" class="md-skip">
           跳转至
         </a>
       
@@ -90,7 +90,7 @@
   <nav class="md-header__inner md-grid" aria-label="页眉">
     <a href="../../.." title="zeropoint5" class="md-header__button md-logo" aria-label="zeropoint5" data-md-component="logo">
       
-  <img src="../../../img/logo.png" alt="logo">
+  <img src="../../../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -274,7 +274,7 @@
   <label class="md-nav__title" for="__drawer">
     <a href="../../.." title="zeropoint5" class="md-nav__button md-logo" aria-label="zeropoint5" data-md-component="logo">
       
-  <img src="../../../img/logo.png" alt="logo">
+  <img src="../../../assets/logo.png" alt="logo">
 
     </a>
     zeropoint5
@@ -650,15 +650,6 @@
       目录
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      目录
-    </span>
-  </a>
-  
-</li>
       
         <li class="md-nav__item">
   <a href="#1-cpu" class="md-nav__link">
@@ -1463,15 +1454,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      目录
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#1-cpu" class="md-nav__link">
     <span class="md-ellipsis">
       1. CPU
@@ -1984,39 +1966,6 @@
   <h1>计算机系统基本概念</h1>
 
 <p>标签：<a href="../../_tags/制作一个CPU">制作一个CPU</a>, <a href="../../_tags/计算机架构">计算机架构</a>, <a href="../../_tags/硬件与软件基础">硬件与软件基础</a>, <a href="../../_tags/数据传输方法">数据传输方法</a></p>
-<h2 id="_1">目录</h2>
-<ul>
-<li>
-<p><strong>计算机系统的基本组成</strong>：</p>
-<ul>
-<li><a href="#cpu"><strong>1. 中央处理单元（CPU）</strong></a>：理解 CPU 的基本功能和工作原理，包括指令执行、数据处理、和控制流。</li>
-<li><a href="#memory"><strong>2. 存储器层次结构</strong></a>：了解不同类型的存储器（如 RAM、ROM、缓存）及其在计算机系统中的角色。</li>
-<li><a href="#io"><strong>3. 输入/输出（I/O）系统</strong></a>：理解外部设备如何与 CPU 和内存交互，以及数据传输的基本原理。</li>
-</ul>
-</li>
-<li>
-<p><strong>数字逻辑和电路设计</strong>：</p>
-<ul>
-<li><a href="#logic"><strong>4. 逻辑门（如 AND、OR、NOT）</strong></a>：这些是构建更复杂数字电路（如加法器、寄存器）的基础。</li>
-<li><a href="#clock"><strong>5. 组合逻辑和时序逻辑</strong></a>：了解如何构建可以执行特定功能的电路，以及如何通过时钟信号来同步电路操作。</li>
-</ul>
-</li>
-<li>
-<p><strong>计算机硬件语言和架构</strong>：</p>
-<ul>
-<li><a href="#compile"><strong>6. 汇编语言和机器语言</strong></a>：理解 CPU 如何解释和执行指令，以及如何将高级语言指令转换为机器码。</li>
-<li><a href="#isa"><strong>7. 指令集架构（ISA）</strong></a>：了解不同类型的指令集，以及它们如何影响 CPU 设计和性能。</li>
-</ul>
-</li>
-<li>
-<p><strong>硬件组件与接口</strong>：</p>
-<ul>
-<li><a href="#multicore"><strong>8. 处理器核心和多核处理</strong></a>：了解单核和多核 CPU 的差异以及它们的工作原理。</li>
-<li><a href="#bus"><strong>9. 总线和接口</strong></a>：理解不同类型的总线（如数据总线、地址总线）以及它们在硬件组件间数据传输中的作用。</li>
-</ul>
-</li>
-</ul>
-<p><a name="cpu"></a></p>
 <h2 id="1-cpu">1. CPU</h2>
 <h3 id="11-cpu">1.1 CPU 的基本结构</h3>
 <ul>
@@ -2053,7 +2002,6 @@
 <li><strong>多线程</strong>：一颗 CPU 能够同时处理多个线程，提高执行效率。</li>
 <li><strong>多核心</strong>：现代 CPU 通常包含多个独立的核心，每个核心可以同时执行不同的任务。</li>
 </ul>
-<p><a name="memory"></a></p>
 <h2 id="2">2. 存储器</h2>
 <h3 id="21-ram">2.1. 随机访问存储器（RAM）</h3>
 <ul>
@@ -2176,7 +2124,6 @@
 </tr>
 </tbody>
 </table>
-<p><a name="io"></a></p>
 <h2 id="3-io">3. 输入/输出系统（I/O）</h2>
 <p>输入输出系统（I/O系统）是计算机架构中的关键组成部分，负责管理外部设备与 CPU 和内存之间的数据交互。I/O系统的设计关键在于有效地管理数据流，确保数据在计算机内部和外部设备之间高效、准确地传输，同时最小化对CPU性能的影响。</p>
 <h3 id="31-io">3.1. I/O系统的主要组件</h3>
@@ -2275,7 +2222,6 @@
 </ul>
 </li>
 </ul>
-<p><a name="logic"></a></p>
 <h2 id="4">4. 逻辑门</h2>
 <h3 id="41">4.1. 逻辑门</h3>
 <ul>
@@ -2289,7 +2235,6 @@
 <li><strong>寄存器</strong>：使用触发器构建，用于存储数据。</li>
 <li><strong>计数器</strong>：基于触发器，用于计数和计时操作。</li>
 </ul>
-<p><a name="clock"></a></p>
 <h2 id="5">5. 组合逻辑和时序逻辑</h2>
 <h3 id="51">5.1. 组合逻辑</h3>
 <ul>
@@ -2311,7 +2256,6 @@
 <li><strong>寄存器组</strong>：存储操作数、指令和中间结果。</li>
 <li><strong>数据路径</strong>：连接上述各个组件，用于数据传输。</li>
 </ul>
-<p><a name="compile"></a></p>
 <h2 id="6">6. 汇编语言和机器语言</h2>
 <h3 id="61">6.1. 机器语言</h3>
 <p>机器语言是计算机的最底层语言，由二进制代码组成，直接被 CPU 执行。</p>
@@ -2337,7 +2281,6 @@
 <li><strong>编译过程</strong>：高级语言（如 C++、Java）编写的程序需要通过编译器转换为机器语言。编译器将高级语言代码编译成汇编语言，然后再由汇编器转换为机器码。</li>
 <li><strong>优化</strong>：现代编译器在将高级语言转换为机器码的过程中会进行优化，以提高代码的执行效率和减少资源消耗。</li>
 </ul>
-<p><a name="isa"></a></p>
 <h2 id="7-isa">7. 指令集架构（ISA）</h2>
 <p>指令集架构（Instruction Set Architecture，ISA）是定义 CPU 操作和程序控制计算机硬件方式的一套规则和标准。它涉及到 CPU
 可以执行的所有指令，包括数据处理、数据存储、数据检索、逻辑操作和控制操作等。</p>
@@ -2429,7 +2372,6 @@
 </tr>
 </tbody>
 </table>
-<p><a name="multicore"></a></p>
 <h2 id="8">8. 处理器核心和多核处理</h2>
 <p>处理器核心是 CPU 中的一个独立处理单元，负责执行计算任务。每个核心可以独立执行指令和处理数据。</p>
 <h3 id="81-cpu">8.1. 单核 CPU</h3>
@@ -2461,9 +2403,9 @@
   S = \frac{1}{(1-P) + \frac{P}{N}}
   $$</p>
 <ul>
-<li>$S$ 是总体加速比。</li>
-<li>$P$ 是程序中可以并行化的部分比例（介于 0 和 1 之间）。</li>
-<li>$N$ 是处理器的数量。</li>
+<li><span class="arithmatex">\(S\)</span> 是总体加速比。</li>
+<li><span class="arithmatex">\(P\)</span> 是程序中可以并行化的部分比例（介于 0 和 1 之间）。</li>
+<li><span class="arithmatex">\(N\)</span> 是处理器的数量。</li>
 </ul>
 </li>
 <li>
@@ -2480,7 +2422,6 @@
 <li>循环并行化： 许多现代编译器，如 GCC 或 LLVM，可以自动识别并并行化某些类型的循环结构。</li>
 <li>数据并行编程模型： OpenMP（用于 C/C++ 和 Fortran）和 Intel Threading Building Blocks 等技术可以在编译时对并行部分进行优化。</li>
 </ul>
-<p><a name="bus"></a></p>
 <h2 id="9">9. 总线和接口</h2>
 <p>在计算机系统中，总线是连接各种硬件组件并实现数据传输的关键部分。主要的总线类型包括数据总线、地址总线和控制总线。</p>
 <h3 id="91-data-bus">9.1. 数据总线（Data Bus）</h3>
@@ -2546,6 +2487,10 @@
     
     
       <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="../../../js/mathjax.js"></script>
       
     
   </body>
