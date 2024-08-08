@@ -1,34 +1,43 @@
+extra:
+  generator: false
+nav:
+- 首页: index.md
+- 笔记:
+  - 电气与电子工程:
+    - 波束形成与阵列信号处理: blog/eee/20240103.BasicConceptOfRadarSystem.md
+    - DOA 估计方法: blog/eee/20240103.DOAEstimation.md
+    - 信号处理理论基础: blog/eee/20240102.BasicConceptOfDigitalSignalProcessing.md
+  - 材料科学:
+    - 沥青材料笔记: blog/material/20231221.AsphaltMaterialNotes.md
+  - 计算机:
+    - 基础电路实验: blog/computer/20231212.BasicCircuitLab.md
+    - 从头设计一个 CPU: blog/computer/20231211.DesignCPUOutline.md
+    - 计算机系统基本概念: blog/computer/20231211.ComputerSysIntro.md
+    - 二进制表示和运算: blog/computer/20231031.BinaryOpt.md
+  - 气候学:
+    - 大气环流: blog/climate/20231129.AtmosphericCirculation.md
+    - 关于大气层的一些问题: blog/climate/20231128.QuestionAboutAtmoshpere.md
+    - 从四季形成到太阳能: blog/climate/20231124.WhyFourSeasons.md
+  - 碳中和:
+    - 世界银行《碳定价的状态和趋势2023》的笔记: blog/carbon/20231226.StateAndTrendsOfCarbonPricing2023Note.md
+    - 《气候经济与人类未来》的读书笔记: blog/carbon/20231218.HowToAvoidAClimateDisasterNote.md
+    - 《一本书读懂碳中和》的读书笔记: blog/carbon/20231213.CarbonNeutralityNote.md
+- 关于: about.md
+plugins:
+- search
 site_name: zeropoint5
-
 theme:
-  name: material
-  logo: img/logo.png
   favicon: img/logo.png
   features:
   - navigation.tabs
   - search.suggest
   - search.highlight
-  navigation_depth: 0
-  toc_depth: 0
   language: zh
+  logo: img/logo.png
+  name: material
+  navigation_depth: 0
   palette:
-    - scheme: default
-      primary: light blue
-      accent: blue
-
-markdown_extensions:
-  - toc:
-      permalink: false
-      toc_depth: 0
-
-extra:
-  generator: false
-
-nav:
-  - 首页: index.md
-  - 博客:
-    - blog/index.md
-  - 关于: about.md
-
-plugins:
-  - search
+  - accent: blue
+    primary: light blue
+    scheme: default
+  toc_depth: 0
