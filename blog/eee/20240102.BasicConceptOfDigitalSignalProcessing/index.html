@@ -1,0 +1,1529 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="王兵">
+      
+      
+      
+        <link rel="prev" href="../20240103.DOAEstimation/">
+      
+      
+        <link rel="next" href="../../material/20231221.AsphaltMaterialNotes/">
+      
+      
+      <link rel="icon" href="../../../img/logo.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.30">
+    
+    
+      
+        <title>信号处理理论基础 - zeropoint5</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="zeropoint5" class="md-header__button md-logo" aria-label="zeropoint5" data-md-component="logo">
+      
+  <img src="../../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            zeropoint5
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              信号处理理论基础
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../20240103.BasicConceptOfRadarSystem/" class="md-tabs__link">
+          
+  
+  笔记
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="zeropoint5" class="md-nav__button md-logo" aria-label="zeropoint5" data-md-component="logo">
+      
+  <img src="../../../img/logo.png" alt="logo">
+
+    </a>
+    zeropoint5
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    笔记
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            笔记
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    电气与电子工程
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            电气与电子工程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20240103.BasicConceptOfRadarSystem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    波束形成与阵列信号处理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../20240103.DOAEstimation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DOA 估计方法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    信号处理理论基础
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    信号处理理论基础
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      数字信号处理概念
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      信号的时频分析
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      信噪比
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    材料科学
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            材料科学
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../material/20231221.AsphaltMaterialNotes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    沥青材料笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    计算机
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            计算机
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer/20231212.BasicCircuitLab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基础电路实验
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer/20231211.DesignCPUOutline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    从头设计一个 CPU
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer/20231211.ComputerSysIntro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    计算机系统基本概念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer/20231031.BinaryOpt/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    二进制表示和运算
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    气候学
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            气候学
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../climate/20231129.AtmosphericCirculation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    大气环流
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../climate/20231128.QuestionAboutAtmoshpere/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    关于大气层的一些问题
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../climate/20231124.WhyFourSeasons/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    从四季形成到太阳能
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    碳中和
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            碳中和
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../carbon/20231226.StateAndTrendsOfCarbonPricing2023Note/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    世界银行《碳定价的状态和趋势2023》的笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../carbon/20231218.HowToAvoidAClimateDisasterNote/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    《气候经济与人类未来》的读书笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../carbon/20231213.CarbonNeutralityNote/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    《一本书读懂碳中和》的读书笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    关于
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      数字信号处理概念
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      信号的时频分析
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      信噪比
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>信号处理理论基础</h1>
+
+<p>标签：<a href="../../_tags/数字信号处理">数字信号处理</a></p>
+<h2 id="_1">数字信号处理概念</h2>
+<ol>
+<li>
+<p><strong>信号处理简介</strong></p>
+</li>
+<li>
+<p>信号处理的历史</p>
+<ul>
+<li>19 世纪开始有电信技术，早起主要是模拟信号，比如电话中声音信号的传输与放大</li>
+<li>二战期间，在雷达、通信系统中的技术发展显著，香农的工作也提供了理论基础</li>
+<li>1960 年代，随着数字计算机的发展，数字信号处理（DSP）兴起，快速傅里叶变换（FFT）算法提高了数字信号处理的效率</li>
+<li>21 世纪的近代，DSP 成为许多领域重要部分。</li>
+</ul>
+</li>
+<li>
+<p>模拟信号与数字信号的区别</p>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>模拟信号</th>
+<th>数字信号</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>表示形式</strong></td>
+<td>连续，任何时间点都有值</td>
+<td>离散，只在特定时间点上有值</td>
+</tr>
+<tr>
+<td><strong>时间性质</strong></td>
+<td>连续时间信号</td>
+<td>离散时间信号</td>
+</tr>
+<tr>
+<td><strong>值的范围</strong></td>
+<td>可以取无限范围内的任何值</td>
+<td>只能取有限数量的值</td>
+</tr>
+<tr>
+<td><strong>幅度量化</strong></td>
+<td>幅度不进行量化</td>
+<td>幅度在采样时被量化为离散级别</td>
+</tr>
+<tr>
+<td><strong>易受噪声影响</strong></td>
+<td>容易受到噪声影响，难以去除</td>
+<td>对噪声有更强的抵抗力，可通过技术减少影响</td>
+</tr>
+<tr>
+<td><strong>处理和传输</strong></td>
+<td>需要模拟技术，复杂操作难以实现</td>
+<td>适用数字技术，易于复杂操作实现</td>
+</tr>
+<tr>
+<td><strong>存储</strong></td>
+<td>存储相对复杂，容易随时间退化</td>
+<td>易于存储，可长时间保存无损</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>信号处理在通信、音频、图像处理中的应用</p>
+<ul>
+<li>通信：包括数据压缩、调制解调、错误检测与纠正等</li>
+<li>音频：声音的录制、编辑、合成和再现，音乐制作、降噪和音质增强等</li>
+<li>语音：语音识别、语音合成和语音编码等</li>
+<li>图像：图像增强、复原、压缩和特征提取等</li>
+<li>计算机视觉：人脸识别、物体检测等</li>
+<li>机器学习：数据预处理、特征提取和模式识别等</li>
+<li>医学成像：MRI、CT扫描等处理和解析成像数据等</li>
+</ul>
+</li>
+<li>
+<p><strong>信号的数字化</strong></p>
+</li>
+<li>
+<p>采样理论（奈奎斯特定理）</p>
+<ul>
+<li>采样是将连续时间信号转换成离散时间信号的过程</li>
+<li>混叠（Aliasing）：如果采样频率太低，高频信号的部分可能会被错误解释为低频信号</li>
+<li>奈奎斯特定理：为了确保信号可以被完全重建，采样频率至少是最高频率成分的两倍</li>
+<li>一般实际应用中，通常会高于奈奎斯特频率的采样频率</li>
+</ul>
+</li>
+<li>
+<p>量化与编码</p>
+<ul>
+<li>量化和编码是将模拟信号转成数字信号的步骤</li>
+<li>量化：将采样值映射到预先定义的量化级别上。由于是连续映射到离散，会涉及到量化误差和精度。</li>
+<li>编码：将量化后的离散数值转换为可以在数字系统中存储和传输的形式。通常表示为二进制数，为了有效传输还会有数据压缩以及错误校正的步骤。</li>
+</ul>
+</li>
+<li>
+<p>采样频率与量化级别对信号的影响</p>
+<ul>
+<li>采样率指的是每秒中对信号进行采样的次数，通常以赫兹（Hz）为单位。它决定了信号的时间分辨率。</li>
+<li>量化级别指的是用于表示每个采样值的比特数，通常以比特（Bit）为单位。量化级别的选择决定了量化过程中可以表示的不同幅度级别的数量。</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>优点</th>
+<th>缺点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>高采样率</td>
+<td>高时间分辨率，信号细节</td>
+<td>需要更大存储空间和处理能力</td>
+</tr>
+<tr>
+<td>低采样率</td>
+<td>减少存储空间和处理需求</td>
+<td>低分辨率，丢失细节，混叠</td>
+</tr>
+<tr>
+<td>高量化级别</td>
+<td>高幅度分辨率，低量化噪声，高动态范围</td>
+<td>更多存储空间</td>
+</tr>
+<tr>
+<td>低量化级别</td>
+<td>减少存储空间</td>
+<td>低幅度分辨率，高噪声，低动态范围</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p><strong>数字信号处理的基本概念</strong></p>
+</li>
+<li>
+<p>离散时间信号：</p>
+<ul>
+<li>离散时间信号是定义在时间点上的信号，常用序列比如 $x[n]$ 来表示。</li>
+</ul>
+</li>
+<li>
+<p>离散时间系统：</p>
+<ul>
+<li>离散时间系统是处理离散时间信号的系统，根据输入信号生成输出信号。</li>
+</ul>
+</li>
+<li>
+<p>离散时间系统分类：</p>
+<ul>
+<li>线性与非线性系统：线性系统满足叠加原理，非线性不满足。</li>
+<li>时不变系统与时变系统：时不变系统行为不随时间改变，时变系统不满足。</li>
+<li>因果系统与非因果系统：因果系统输入只取决于当前和过去的输入，非因果系统不满足。</li>
+</ul>
+</li>
+<li>
+<p>Z 变换：</p>
+<ul>
+<li>
+<p>Z 变换是离散时间信号的拉普拉斯变换的等效形式，将离散时间信号 $x[n]$ 转换为复频域表示。数学表达式为：
+   $$
+   X(z) = \sum^{\infty}_{n=-\infty}x[n]z^{-n}
+   $$
+   其中 $z$ 是复数，形式为 $z = re^{j\omega}$</p>
+</li>
+<li>
+<p>用于离散时间系统的分析和设计，信号的时域和频域特性分析，如稳定性和频率响应分析。</p>
+</li>
+<li>
+<p>特别适用于描述和分析线性时不变系统（LTI）</p>
+</li>
+</ul>
+</li>
+<li>
+<p>离散傅里叶变换（DFT）：</p>
+<ul>
+<li>
+<p>DFT 是傅里叶变换在离散时间信号上的应用，用于分析信号的频率内容。DFT 将离散时间信号转换为离散频域表示，其数学表达式为：
+   $$
+   X[k] = \sum^{N-1}_{n=0} x[n]e^{-j\frac{2\pi}{N}kn}
+   $$
+   其中，$N$ 是信号长度，$X[k]$ 是频域表示。</p>
+</li>
+<li>
+<p>用于信号的频谱分析，如分析信号的频率成分，滤波器设计等。快速傅里叶变换 FFT 是 DFT 的高效计算方法。适用于周期信号和非周期信号的频率分析。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>数字滤波器：</p>
+<ul>
+<li>数字滤波器用于从信号中提取所需要的信息或者去除不需要的部分。</li>
+</ul>
+</li>
+<li>
+<p>数字滤波器的规格：</p>
+<ul>
+<li>滤波器类型：低通、高通、带通、带阻</li>
+<li>频率规格：截止频率、带宽、阻带、通带频率等。</li>
+<li>幅度规格：通带波纹，阻带衰减。</li>
+<li>滤波器阶数：决定了复杂度和性能</li>
+</ul>
+</li>
+<li>
+<p>滤波器设计方法：</p>
+<ul>
+<li>IIR（无限冲击响应）滤波器：如巴特沃斯、切比雪夫、椭圆等，通常具有较低的阶数，但可能不是线性相位的，需要考虑稳定性。</li>
+<li>FIR（有限冲击响应）滤波器：通常使用窗函数法或最小二乘法设计，通常是线性相位的，易于实现，但可能需要较高阶数。</li>
+</ul>
+</li>
+<li>
+<p>滤波器实现：</p>
+<ul>
+<li>软件实现：比如 Matlab、Python 实现滤波器算法</li>
+<li>硬件实现：比如数字信号处理器 DSP 或可编程门阵列（FPGA）</li>
+</ul>
+</li>
+<li>
+<p>性能验证：</p>
+<ul>
+<li>频率响应分析：确设计的滤波器满足频率规格</li>
+<li>时域分析：检查滤波器的阶跃响应和冲击响应</li>
+<li>稳定性测试：特别是对 IIR 滤波器很重要</li>
+</ul>
+</li>
+</ol>
+<h2 id="_2">信号的时频分析</h2>
+<ol>
+<li>
+<p><strong>时域分析</strong></p>
+</li>
+<li>
+<p>信号的时域特性：</p>
+<ul>
+<li>幅度相关：比如信号幅度的峰值、幅度平均值、幅度的均方根值（能量水平）</li>
+<li>相位相关：描述信号波形相对于参考信号的位移或延迟。</li>
+<li>频率相关：基频，周期信号重复的频率，谐波频率：周期信号中频率的整数倍部分。</li>
+<li>周期性：是否有固定重复周期</li>
+<li>对称性：是否关于某一点或某一条轴对称。</li>
+<li>能量信号：总能量有限的信号，比如脉冲信号</li>
+<li>功率信号：平均功率有限，但总能量可能无限的信号，比如周期信号。</li>
+<li>稳定性：表示信号随时间变化的稳定程度</li>
+<li>波形特性：如锯齿波、方波、三角波等。</li>
+</ul>
+</li>
+<li>信号波形与波形参数：<ul>
+<li>波形：描述信号在时间轴上的形状，如正弦波、方波、锯齿波等</li>
+<li>振幅：信号在时域中平均值到最大值或最小值之间的差异。</li>
+<li>峰·峰值：波形信号中最高点和最低点之间的差值。</li>
+<li>周期：重复的时间间隔。</li>
+<li>频率：单位时间内重复的次数。</li>
+<li>相位：相对于其标准形式的位移。</li>
+<li>有效值（RMS）：信号的电能大小的度量。</li>
+</ul>
+</li>
+<li>
+<p>时域分析的应用实例：</p>
+<ul>
+<li>音频信号处理：用于波形剪辑、混音、动态范围压缩。通过波形还可以检测失真和过载。</li>
+<li>通信系统：调制信号的时域特性，如 AM（幅度调制）、FM（频率调制）。</li>
+<li>雷达和声呐信号：通过分析回波的时延和振幅来检测和定位物体。</li>
+<li>医学信号处理：心电图（ECG）脑电图（EEG）信号分析，用于诊断和监测。</li>
+<li>振动分析：机械系统的故障诊断，分析旋转机械的不平衡或故障。</li>
+<li>电力系统分析：监测电压波动和暂态现象等。</li>
+</ul>
+</li>
+<li>
+<p><strong>频域分析</strong></p>
+</li>
+<li>
+<p>频域分析把信号从其原始形式转换为表示信号频率成分的形式。频域中，信号被描述各种频率成分的组合，每个成分都有幅度和相位。</p>
+</li>
+<li>
+<p>频域的基本概念：</p>
+<ul>
+<li>频率：表示信号周期变化快慢（单位：Hz）</li>
+<li>周期：信号重复自身的时间长度。</li>
+<li>幅度：特定频率成分的强度或能量。</li>
+<li>相位：特定频率成分相对标准参考点的时移。</li>
+</ul>
+</li>
+<li>
+<p>傅里叶级数与傅里叶变换：</p>
+<ul>
+<li>
+<p>傅里叶分析是将信号分解成频域的数学工具。</p>
+</li>
+<li>
+<p>傅里叶级数：对周期性信号，分解为一系列的正弦和余弦波
+   $$
+   f(t) = a_0 + \sum_{n=1}^{\infty} \left[ a_n \cos(n \omega_0 t) + b_n \sin(n \omega_0 t) \right]
+   $$</p>
+</li>
+<li>
+<p>傅里叶变换：对非周期信号，将其转换为连续的频谱
+   $$
+   F(\omega) = \int_{-\infty}^{\infty} f(t) e^{-j\omega t} \, dt
+   $$</p>
+</li>
+</ul>
+</li>
+<li>
+<p>拉普拉斯变换</p>
+<ul>
+<li>
+<p>用于分析线性时不变（LTI）系统，其数学表达式为：
+   $$
+   F(s) = \int_{0}^{\infty} f(t) e^{-st} dt
+   $$
+   其中：s 是复数变量，$s = \sigma + j\omega$</p>
+</li>
+<li>
+<p>它可以处理信号的增长、衰减和震荡等特性，比傅里叶变换更具一般性，考虑了信号的全部历史，傅里叶变换则通常用于周期性或非周期性但不增长的函数，主要关注信号的稳态行为。</p>
+</li>
+<li>
+<p>傅里叶变换可以看做是拉普拉斯变换的特例，当拉普拉斯变换中的 $\sigma = 0$ 时，等价于傅里叶变换。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>频谱分析与频谱图：</p>
+<ul>
+<li>频谱分析是分析信号的频率成分的过程。</li>
+<li>频谱图显示信号的各个频率成分的幅度、有事包括相位。X 轴代表频率，Y  轴代表幅度。</li>
+<li>通过频谱分析，可以提取出有关信号的重要信息，在时域中可能不是那么明显。</li>
+</ul>
+</li>
+<li>
+<p><strong>时频分析方法</strong></p>
+</li>
+<li>
+<p>时频分析方法是指能够同时提供信号时域和频率信息的分析技术。</p>
+</li>
+<li>
+<p>短时傅里叶变换（STFT）</p>
+<ul>
+<li>
+<p>原理：STFT 将信号分割成较短的时间片段，然后对每个片段进行傅里叶变换来工作。</p>
+</li>
+<li>
+<p>公式：
+   $$
+   STFT{x(t)}(\tau, \omega) = \int_{-\infty}^{\infty} x(t) w(t-\tau) e^{-j\omega t} dt
+   $$
+   其中，$\omega(t)$ 是时间窗函数，$\tau$ 是时间变量，$\omega$ 是频率。</p>
+</li>
+<li>
+<p>应用：比如语音分析，雷达系统和通信系统中信号的时间变化特性。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>小波变换</p>
+<ul>
+<li>
+<p>原理：通过使用一系列「小波」对母函数进行信号分析，这些母函数可以被拉伸（用于分析低频成分）和压缩（用于分析高频成分）。</p>
+</li>
+<li>
+<p>公式：
+   $$
+   W_x(a, b) = \frac{1}{\sqrt{|a|}} \int_{-\infty}^{\infty} x(t) \psi^*\left(\frac{t-b}{a}\right) dt
+   $$
+   其中，$\psi(t)$ 是小波函数，$a$是尺度参数，$b$ 是位置参数。</p>
+</li>
+<li>
+<p>应用：比如图像处理，图像压缩和特征提取。在生物医学信号中处理比如心电图 ECG 类的复杂信号。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>其他时频域分析方法：</p>
+<ul>
+<li><strong>Wigner-Ville 分布, WVD</strong>：一种高分辨率的时频表示方法，提供信号的瞬时频率信息，但可能会产生交叉项，导致解释困难。</li>
+<li><strong>Choi-Williams 分布</strong>：类似 WVD，但通过应用一个核函数来减少交叉项的影响。</li>
+<li><strong>Gabor 变换</strong>：STFT 的一种变体，使用固定窗口宽度对信号进行分析。</li>
+<li><strong>Hilbert-Huang 变换（HHT）</strong>：特别适用于非线性和非平稳信号的分析，首先使用经验模态分解（EMD）将信号分解为一组本征模态函数（IMF）然后对每个 IMF 进行 Hilbert 谱分析。</li>
+<li><strong>S 变换</strong>：结合了 STFT 和小波变换的特点，提供了频率依赖的分辨率。是对信号进行局部化频率分析的工具。</li>
+</ul>
+</li>
+</ol>
+<h2 id="_3">信噪比</h2>
+<ol>
+<li>
+<p><strong>信噪比的定义与重要性</strong></p>
+</li>
+<li>
+<p>信噪比的数学定义</p>
+<ul>
+<li>
+<p>信噪比是衡量信号强度相对于背景噪音强度的度量。通常以分贝（dB）为单位表示，以下是 SNR（Signal-to-Noise Ratio）公式：</p>
+</li>
+<li>
+<p>数学定义：
+   $$
+   SNR(dB) = 10 \log_{10}(\frac{P_{signal}}{P_{noise}})
+   $$
+   其中 $P_{signal}$ 是信号的功率，$P_{noise}$ 是噪声的功率。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>信号质量评估中的信噪比</p>
+<ul>
+<li>高信噪比：意味着信号中有用信息远大于干扰噪声，通常与更好的信号质量和更清晰的接受相关。</li>
+<li>低信噪比：表示噪声水平高，会让信号不清晰或难以解释。信噪比过低会引起信号失真，极端情况下，可能会导致信号完全被噪声掩盖。</li>
+</ul>
+</li>
+<li>
+<p>信噪比与系统性能</p>
+<ul>
+<li>高信噪比在通信系统、音频系统、图像和视频系统、测量和仪器设备等系统应用性能中都非常重要。</li>
+</ul>
+</li>
+<li>
+<p>测量信噪比的方法</p>
+<ul>
+<li>直接测量：通过测量整个系统的输出，然后再相同条件下仅测量噪声的方法计算信噪比。</li>
+<li>间接测量：分别测量信号和噪声的功率或振幅水平，然后用 SNR 公式计算。</li>
+</ul>
+</li>
+<li>
+<p><strong>提高信噪比的策略</strong></p>
+</li>
+<li>
+<p>信号增强技术</p>
+<ul>
+<li>信号放大器：使用高质量的信号放大器，同时尽量不增加额外的噪声。</li>
+<li>预处理滤波：在信号处理早期使用滤波器提取信号重要成分，削弱不相关的频率成分。</li>
+<li>自适应滤波：使用自适应滤波技术，根据信号特征动态调整滤波器参数。</li>
+</ul>
+</li>
+<li>噪声减少方法<ul>
+<li>源头控制：在噪声源头采取屏蔽、隔离等措施。</li>
+<li>数字降噪：在数字信号处理中应用各种算法：比如谱减法、小波降噪等。</li>
+<li>空间滤波器：对于多通道系统，如阵列麦克风或天线，使用波束形成等技术空间上抑制噪声。</li>
+</ul>
+</li>
+<li>信号重建与恢复<ul>
+<li>错误更正编码：如卷积码或涡轮码，以在接收端重建原始信号。</li>
+<li>数据插值与重采样：对丢失或损坏的型号部分进行插值或重采样。</li>
+<li>信号重建：应用数学模型和算法，如压缩感知、稀疏表示等，以从不完整或损坏的数据中恢复信号。</li>
+</ul>
+</li>
+</ol>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+    
+  </body>
+</html>

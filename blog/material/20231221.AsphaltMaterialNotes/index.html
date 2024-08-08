@@ -1,0 +1,2481 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="王兵">
+      
+      
+      
+        <link rel="prev" href="../../eee/20240102.BasicConceptOfDigitalSignalProcessing/">
+      
+      
+        <link rel="next" href="../../computer/20231212.BasicCircuitLab/">
+      
+      
+      <link rel="icon" href="../../../img/logo.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.30">
+    
+    
+      
+        <title>沥青材料笔记 - zeropoint5</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.3cba04c6.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="zeropoint5" class="md-header__button md-logo" aria-label="zeropoint5" data-md-component="logo">
+      
+  <img src="../../../img/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            zeropoint5
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              沥青材料笔记
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="light-blue" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
+        
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../eee/20240103.BasicConceptOfRadarSystem/" class="md-tabs__link">
+          
+  
+  笔记
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../about/" class="md-tabs__link">
+        
+  
+    
+  
+  关于
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="zeropoint5" class="md-nav__button md-logo" aria-label="zeropoint5" data-md-component="logo">
+      
+  <img src="../../../img/logo.png" alt="logo">
+
+    </a>
+    zeropoint5
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    笔记
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            笔记
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    电气与电子工程
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            电气与电子工程
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eee/20240103.BasicConceptOfRadarSystem/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    波束形成与阵列信号处理
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eee/20240103.DOAEstimation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DOA 估计方法
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eee/20240102.BasicConceptOfDigitalSignalProcessing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    信号处理理论基础
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    材料科学
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            材料科学
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    沥青材料笔记
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    沥青材料笔记
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 沥青的历史和应用
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 沥青的历史和应用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1. 沥青的历史：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2. 沥青的现代应用：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 沥青的基本化学
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 沥青的基本化学">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1. 沥青的化学组成：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2. 沥青中的分子类型（四组分模型）：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3. 沥青中分子相互作用：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 沥青的物理性质
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 沥青的物理性质">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1. 粘度：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2. 软化点：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3. 渗透度：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4. 热稳定性：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5. 流变特性：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 沥青的生产和加工
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 沥青的生产和加工">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1. 精炼过程：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2. 沥青改性技术：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3. 沥青改性剂：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 沥青混合料设计
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 沥青混合料设计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 组成：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 级配：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3. 基本原则：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4. 设计目标：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5. 设计变量：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.6. 沥青与骨料互动对混合料性能影响：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#57" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7. 混合设计方法：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 沥青铺设技术
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 沥青铺设技术">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1. 铺设设备：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2. 工艺流程：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3. 施工质量控制：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 沥青的性能测试
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 沥青的性能测试">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 实验室评估
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2 路面的性能测试
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. 沥青的老化和耐久性
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 沥青的老化和耐久性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1. 老化机理：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2. 耐久性和维护策略：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3 常见损坏类型和原因：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4 维修技术：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. 沥青的可持续性和再生
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. 沥青的可持续性和再生">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1. 再生沥青技术：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2. 环保和可持续性问题：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    计算机
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            计算机
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer/20231212.BasicCircuitLab/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    基础电路实验
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer/20231211.DesignCPUOutline/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    从头设计一个 CPU
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer/20231211.ComputerSysIntro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    计算机系统基本概念
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer/20231031.BinaryOpt/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    二进制表示和运算
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    气候学
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            气候学
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../climate/20231129.AtmosphericCirculation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    大气环流
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../climate/20231128.QuestionAboutAtmoshpere/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    关于大气层的一些问题
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../climate/20231124.WhyFourSeasons/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    从四季形成到太阳能
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    碳中和
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            碳中和
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../carbon/20231226.StateAndTrendsOfCarbonPricing2023Note/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    世界银行《碳定价的状态和趋势2023》的笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../carbon/20231218.HowToAvoidAClimateDisasterNote/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    《气候经济与人类未来》的读书笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../carbon/20231213.CarbonNeutralityNote/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    《一本书读懂碳中和》的读书笔记
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    关于
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. 沥青的历史和应用
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. 沥青的历史和应用">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1. 沥青的历史：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2. 沥青的现代应用：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. 沥青的基本化学
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. 沥青的基本化学">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.1. 沥青的化学组成：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.2. 沥青中的分子类型（四组分模型）：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23" class="md-nav__link">
+    <span class="md-ellipsis">
+      2.3. 沥青中分子相互作用：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. 沥青的物理性质
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. 沥青的物理性质">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.1. 粘度：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.2. 软化点：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.3. 渗透度：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.4. 热稳定性：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35" class="md-nav__link">
+    <span class="md-ellipsis">
+      3.5. 流变特性：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. 沥青的生产和加工
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. 沥青的生产和加工">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#41" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.1. 精炼过程：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#42" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.2. 沥青改性技术：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#43" class="md-nav__link">
+    <span class="md-ellipsis">
+      4.3. 沥青改性剂：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. 沥青混合料设计
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. 沥青混合料设计">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 组成：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 级配：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3. 基本原则：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4. 设计目标：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#55" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.5. 设计变量：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#56" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.6. 沥青与骨料互动对混合料性能影响：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#57" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.7. 混合设计方法：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. 沥青铺设技术
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. 沥青铺设技术">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1. 铺设设备：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2. 工艺流程：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3. 施工质量控制：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. 沥青的性能测试
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. 沥青的性能测试">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#71" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.1 实验室评估
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#72" class="md-nav__link">
+    <span class="md-ellipsis">
+      7.2 路面的性能测试
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. 沥青的老化和耐久性
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. 沥青的老化和耐久性">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#81" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.1. 老化机理：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#82" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.2. 耐久性和维护策略：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#83" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.3 常见损坏类型和原因：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#84" class="md-nav__link">
+    <span class="md-ellipsis">
+      8.4 维修技术：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. 沥青的可持续性和再生
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="9. 沥青的可持续性和再生">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#91" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.1. 再生沥青技术：
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#92" class="md-nav__link">
+    <span class="md-ellipsis">
+      9.2. 环保和可持续性问题：
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>沥青材料笔记</h1>
+
+<p>标签：<a href="../../_tags/沥青">沥青</a>, <a href="../../_tags/道路工程">道路工程</a>, <a href="../../_tags/材料科学">材料科学</a></p>
+<h2 id="1">1. 沥青的历史和应用</h2>
+<h3 id="11">1.1. 沥青的历史：</h3>
+<ul>
+<li><strong>古代应用</strong>：早在公元前5000年左右，人们就在现今伊拉克地区的美索不达米亚文明使用沥青。它被用作建筑材料，尤其是在砖墙和路面的建设中。</li>
+<li><strong>古埃及文明</strong>：在古埃及，沥青被用于木乃伊的防腐处理和作为建筑材料。</li>
+<li><strong>罗马时期</strong>：罗马人用沥青铺设道路，这是现代沥青路面的前身。</li>
+</ul>
+<h3 id="12">1.2. 沥青的现代应用：</h3>
+<ol>
+<li><strong>道路建设</strong>：现代最常见的应用是在道路铺设中，作为沥青混合料的主要成分。这种混合料由沥青和骨料（如砂、砾石）组成，具有良好的耐久性和防滑性能。</li>
+<li><strong>屋顶和建筑防水</strong>：沥青也被广泛用于屋顶材料和建筑防水，尤其是在卷材屋面和防水膜的生产中。</li>
+<li><strong>桥梁和机场跑道</strong>：沥青由于其耐久性和可塑性，也适用于桥梁和机场跑道的建设。</li>
+<li><strong>绝缘和涂料</strong>：在电线电缆的绝缘、管道的防腐以及某些涂料中也会使用沥青。</li>
+<li><strong>艺术品修复</strong>：沥青由于其色泽和粘合性，历史上也被用于艺术品的修复和制作。</li>
+</ol>
+<h2 id="2">2. 沥青的基本化学</h2>
+<h3 id="21">2.1. 沥青的化学组成：</h3>
+<ul>
+<li><strong>烃类化合物</strong>：<ul>
+<li>饱和烃：包括直链烷烃（正烷烃）和环状烷烃（环烷烃）。它们在沥青中提供稳定性和流动性。</li>
+<li>芳香烃：包括单环和多环芳香烃。这些化合物贡献了沥青的粘弹性。</li>
+<li>非饱和烃：如烯烃和二烯烃，通常含量较少。</li>
+</ul>
+</li>
+<li><strong>非烃类化合物</strong>：<ul>
+<li>硫化合物、氮化合物和氧化合物：这些化合物影响沥青的老化特性和抗氧化性能。</li>
+<li>微量的金属元素：如镍、钒等，可能存在于沥青中。</li>
+</ul>
+</li>
+<li><strong>分子质量分布</strong>：<ul>
+<li>沥青中的化合物分子质量分布广泛，从轻质油脂到重质沥青质和沥青质。分子质量越大，物质越重，粘度也越高。</li>
+</ul>
+</li>
+</ul>
+<h3 id="22">2.2. 沥青中的分子类型（四组分模型）：</h3>
+<ul>
+<li><strong>饱和烃</strong>：主要包括直链和支链的烷烃（如正己烷、异辛烷）以及环状烷烃（如环己烷）。这些分子结构稳定，对沥青的化学反应性和老化性影响较小。</li>
+<li><strong>芳香烃</strong>：包括单环和多环芳香烃，如苯、萘、菲等。芳香烃具有较高的刚性和极性，对沥青的粘弹性和粘结性有重要影响。</li>
+<li><strong>树脂</strong>：是一类含有极性基团的复杂混合物，包括含氧、含氮和含硫的化合物。树脂对沥青的粘度和粘弹性有显著影响。</li>
+<li><strong>沥青质</strong>：是分子量最大、结构最复杂的组分，含有多环芳香烃和长链烷烃。沥青质对沥青的高温稳定性和耐久性起着关键作用。</li>
+</ul>
+<h3 id="23">2.3. 沥青中分子相互作用：</h3>
+<ul>
+<li><strong>范德华力</strong>：沥青中的饱和烃和某些芳香烃分子主要通过范德华力相互作用。这种弱相互作用导致沥青在低温时具有较好的流动性。</li>
+<li><strong>极性相互作用</strong>：树脂和沥青质中的极性基团可与芳香烃中的π电子产生较强的极性相互作用。这种相互作用增强了沥青的粘合性和高温稳定性。</li>
+<li><strong>氢键</strong>：某些树脂和沥青质分子中含有能形成氢键的官能团（如羟基、羧基等）。氢键的形成进一步提高了沥青的粘性和弹性。</li>
+<li><strong>分子间作用与沥青性能</strong>：这些分子间的相互作用共同决定了沥青的物理和化学性能，如粘度、弹性、软化点和耐温性。沥青的加工和改性通常旨在优化这些相互作用，以提高其性能。</li>
+</ul>
+<h2 id="3">3. 沥青的物理性质</h2>
+<h3 id="31">3.1. 粘度：</h3>
+<ol>
+<li><strong>定义</strong>：粘度是描述流体内部阻力的度量，即流体流动的阻力大小。在沥青中，粘度是衡量其流动性的关键指标。</li>
+<li><strong>影响因素</strong>：温度是影响沥青粘度的主要因素。温度升高，沥青变得更流动，粘度降低；温度降低，沥青变得更稠，粘度升高。</li>
+<li><strong>重要性</strong>：粘度直接影响沥青的加工和应用。例如，在铺设沥青道路时，需要在特定温度范围内保持适当的粘度，以确保沥青的良好铺展和压实。</li>
+</ol>
+<h3 id="32">3.2.  软化点：</h3>
+<ol>
+<li><strong>定义</strong>：软化点是指沥青从半固态转变为粘性流体的温度。这通常通过环球法（Ring-and-Ball test）来测试。</li>
+<li><strong>重要性</strong>：软化点反映了沥青在温度变化下的热稳定性。一个较高的软化点意味着沥青可以在更高的温度下保持稳定，不易流动或变形。</li>
+<li><strong>应用</strong>：在选择沥青材料时，软化点是一个重要的考虑因素，特别是在高温环境或重载交通条件下。</li>
+</ol>
+<h3 id="33">3.3.  渗透度：</h3>
+<ol>
+<li><strong>定义</strong>：渗透度是衡量沥青硬度或软度的指标，通常通过渗透度试验（Penetration test）来测定。它测量在标准条件下，标准针在一定时间内进入沥青样品的深度。</li>
+<li><strong>影响因素</strong>：与粘度类似，渗透度也受温度影响较大。温度升高，渗透度增加；温度降低，渗透度减少。</li>
+<li><strong>重要性</strong>：渗透度可以指示沥青的性能，如其抗裂能力和抗变形能力。例如，高渗透度的沥青较软，适合低温环境；低渗透度的沥青较硬，适合高温环境。</li>
+</ol>
+<h3 id="34">3.4. 热稳定性：</h3>
+<ol>
+<li><strong>定义</strong>：热稳定性是指材料在高温下保持其化学和物理性质的能力。对于沥青而言，这意味着在高温下保持其结构不发生显著变化或分解。</li>
+<li><strong>重要性</strong>：沥青的热稳定性决定了其在炎热天气和高温应用条件下的表现。若热稳定性差，沥青可能会软化、流动甚至产生烟雾和有害气体。</li>
+<li><strong>测试方法</strong>：通常通过高温下的物理性能测试（如软化点和流变特性测试）来评估热稳定性。</li>
+</ol>
+<h3 id="35">3.5. 流变特性：</h3>
+<ol>
+<li><strong>定义</strong>：流变特性是描述材料在应力作用下流动和变形的特性。它包括粘弹性行为，即材料表现出的粘性和弹性特性的组合。</li>
+<li><strong>粘性行为</strong>：决定了沥青在施工和铺设过程中的流动性。</li>
+<li><strong>弹性行为</strong>：影响沥青路面在车辆荷载下的恢复能力和抗变形能力。</li>
+<li>测试方法：<ul>
+<li><strong>动态剪切流变仪（DSR）</strong>：用于测定高温下沥青的流变特性。</li>
+<li><strong>弯曲梁流变仪（BBR）</strong>：用于低温下沥青的弹性和粘性特性评估。</li>
+<li><strong>直剪试验</strong>：评估沥青混合料的抗剪强度。</li>
+</ul>
+</li>
+</ol>
+<h2 id="4">4. 沥青的生产和加工</h2>
+<h3 id="41">4.1. 精炼过程：</h3>
+<ul>
+<li><strong>原油蒸馏</strong>：沥青是在炼油过程中生产的，通常作为原油蒸馏的副产品。原油在蒸馏塔中加热，不同组分在不同的温度下蒸发，沥青作为沸点最高的组分，残留在蒸馏塔底部。</li>
+<li><strong>空气吹炼</strong>：从蒸馏塔底部收集的沥青还需经过进一步处理以提高其性能。常用的方法是空气吹炼，即在高温下将空气吹入沥青中，促使其中的轻组分蒸发，增加沥青的粘度和硬度。</li>
+</ul>
+<h3 id="42">4.2. 沥青改性技术：</h3>
+<ul>
+<li><strong>改性沥青</strong>：为了提高沥青的性能，如增强其耐温性、抗老化能力和弹性，常将沥青与聚合物等添加剂混合，制成改性沥青。例如，SBS（苯乙烯-丁二烯-苯乙烯）改性沥青具有优异的高温稳定性和低温弹性。</li>
+<li><strong>乳化沥青</strong>：沥青乳化是将沥青分散于水中，形成乳状液。这种乳化沥青在低温下易于操作，用于冷拌沥青混合料或作为粘合剂和防水材料。</li>
+</ul>
+<h3 id="43">4.3. 沥青改性剂：</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">改性剂类型</th>
+<th>作用</th>
+<th>工艺</th>
+<th>优点</th>
+<th>缺点</th>
+<th>费用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">聚合物改性剂</td>
+<td>增加弹性和高温稳定性</td>
+<td>热混合沥青中加入聚合物，充分搅拌均匀</td>
+<td>提高高温稳定性，改善低温柔韧性</td>
+<td>成本较高，需要特殊设备和加工工艺</td>
+<td>较高</td>
+</tr>
+<tr>
+<td style="text-align: left;">橡胶改性剂</td>
+<td>提高弹性和抗裂性</td>
+<td>废旧轮胎橡胶粉加入沥青，热混合</td>
+<td>利用废旧材料，环保；提高弹性和耐久性</td>
+<td>加工时间长，可能影响粘合性</td>
+<td>中等</td>
+</tr>
+<tr>
+<td style="text-align: left;">硫化物改性剂</td>
+<td>提高抗氧化和抗老化性能</td>
+<td>将硫化物加入沥青，热混合</td>
+<td>增加耐老化性，提高热稳定性</td>
+<td>需要控制硫化程度，过度硫化会减弱性能</td>
+<td>中等</td>
+</tr>
+<tr>
+<td style="text-align: left;">抗氧化剂</td>
+<td>减缓老化和氧化</td>
+<td>在沥青中添加抗氧化剂，充分混合</td>
+<td>显著延长沥青使用寿命</td>
+<td>可能影响沥青的其他性能，如粘度</td>
+<td>低到中等</td>
+</tr>
+<tr>
+<td style="text-align: left;">纤维改性剂</td>
+<td>增加稳定性和承载能力</td>
+<td>在沥青中加入纤维材料（如聚酯纤维）进行混合</td>
+<td>提高抗变形能力，改善高温稳定性</td>
+<td>可能增加沥青混合物的粘度，影响施工</td>
+<td>中等</td>
+</tr>
+<tr>
+<td style="text-align: left;">生物基改性剂</td>
+<td>环保替代，提高可持续性</td>
+<td>使用植物油或生物质材料改性沥青</td>
+<td>环保，可再生资源；改善粘弹性</td>
+<td>性能可能不如传统石油基沥青，成本和可用性因地而异</td>
+<td>中到高</td>
+</tr>
+<tr>
+<td style="text-align: left;">防剥落剂</td>
+<td>提高沥青与骨料的粘附性</td>
+<td>在沥青中添加防剥落剂，充分混合</td>
+<td>减少水损伤，提高湿滑路面的性能</td>
+<td>过量使用可能影响混合料的其他性能</td>
+<td>低到中等</td>
+</tr>
+</tbody>
+</table>
+<h2 id="5">5. 沥青混合料设计</h2>
+<h3 id="51">5.1 组成：</h3>
+<ul>
+<li><strong>骨料</strong>：通常包括碎石、砂、矿粉等。骨料的硬度、耐磨性和形状会影响混合料的整体性能。</li>
+<li><strong>沥青</strong>：作为粘合剂，沥青的类型（如普通沥青、改性沥青）、质量和用量直接影响混合料的粘结性、耐水性和柔韧性。</li>
+<li><strong>填料</strong>：如石灰石粉或水泥，用于填充骨料间的微小空隙，改善混合料的稳定性和承载能力。</li>
+</ul>
+<h3 id="52">5.2 级配：</h3>
+<ul>
+<li>级配是指混合料中不同粒径骨料的比例和分布情况。</li>
+<li><strong>稠密级配</strong>：各种粒径的骨料均匀分布，填充空隙最大化，使混合料具有良好的稳定性和耐久性。</li>
+<li><strong>开放级配</strong>：含有较多大粒径骨料和较少细粒料，导致较多孔隙，通常用于排水性路面。</li>
+<li><strong>间断级配</strong>：某一或几种粒径的骨料明显少于其他粒径，形成特定的孔隙结构，有时用于特定的应用。</li>
+</ul>
+<h3 id="53">5.3. 基本原则：</h3>
+<ul>
+<li><strong>粘结性和耐用性</strong>：确保沥青和骨料之间有良好的粘结，以抵抗交通负荷和环境因素导致的磨损。</li>
+<li><strong>稳定性和承载能力</strong>：混合料必须足够稳定，以承受交通荷载而不产生过度的形变，如车辙。</li>
+<li><strong>抗裂性</strong>：混合料应具有足够的弹性，以减少低温和疲劳裂缝的风险。</li>
+<li><strong>防水性</strong>：混合料应具有良好的防水性能，防止水分渗透到路基，减少水损伤。</li>
+<li><strong>工作性</strong>：混合料应易于在施工现场铺设和压实，确保均匀密实的路面。</li>
+</ul>
+<h3 id="54">5.4. 设计目标：</h3>
+<ul>
+<li><strong>适应不同交通和环境条件</strong>：考虑道路的交通密度、车辆类型、气候条件等，设计出符合特定应用需求的混合料。</li>
+<li><strong>寿命最大化</strong>：通过优化设计延长路面的使用寿命，减少维护和重铺的需求。</li>
+<li><strong>成本效益</strong>：在保证性能的前提下，寻求成本最优的设计方案。</li>
+<li><strong>环境友好</strong>：增加再生材料的使用，减少废物和排放，采用更环保的生产和施工方法。</li>
+</ul>
+<h3 id="55">5.5. 设计变量：</h3>
+<ul>
+<li><strong>骨料选择和级配</strong>：选择合适类型和大小的骨料，并进行恰当的级配以满足密实度和稳定性要求。</li>
+<li><strong>沥青类型和含量</strong>：根据所需性能选择合适的沥青类型（如改性沥青），并确定适当的沥青含量以保证粘结和耐用性。</li>
+<li><strong>混合和施工温度</strong>：确定合适的混合和施工温度范围，以确保良好的工作性和压实效果。</li>
+<li><strong>环境影响和可持续性</strong>：考虑使用再生材料和低温沥青技术，以减少环境影响。</li>
+</ul>
+<h3 id="56">5.6. 沥青与骨料互动对混合料性能影响：</h3>
+<ul>
+<li>
+<p><strong>沥青与骨料的互动</strong>：</p>
+<ol>
+<li><strong>粘附力</strong>：沥青与骨料的粘附是混合料性能的基础。良好的粘附确保骨料间的有效结合，抵抗交通荷载引起的磨损和形变。</li>
+<li><strong>吸附和湿润性</strong>：沥青的湿润性能决定了其能在多大程度上覆盖骨料表面。骨料表面特性（如粗糙度和化学性质）影响沥青的吸附和覆盖效果。</li>
+<li><strong>骨料的表面能</strong>：不同类型的骨料（如花岗岩、石灰石、玄武岩）具有不同的表面能，影响沥青的粘附性能。</li>
+</ol>
+</li>
+<li>
+<p><strong>对混合料性能的影响</strong>：</p>
+<ol>
+<li><strong>抗裂性能</strong>：良好的沥青与骨料的粘附减少了水分渗透的可能性，从而降低了裂缝形成的风险。</li>
+<li><strong>稳定性和承载能力</strong>：沥青和骨料间的强粘附力提供了良好的承载能力，减少了车辙和变形的可能性。</li>
+<li><strong>耐磨性</strong>：沥青混合料的耐磨性取决于沥青和骨料间的粘合强度。较强的粘合力意味着更好的耐磨性。</li>
+<li><strong>抗老化性能</strong>：沥青的老化速度受到骨料特性的影响，某些骨料可能加速沥青的氧化和硬化过程。</li>
+</ol>
+</li>
+<li>
+<p><strong>设计和施工的考量</strong>：</p>
+<ul>
+<li><strong>骨料的选择和处理</strong>：选择合适类型的骨料，并通过清洗和处理以改善其与沥青的相容性。</li>
+<li><strong>沥青配方优化</strong>：通过调整沥青配方（如添加抗老化剂或改性剂）来增强其与特定骨料的粘附力。</li>
+<li><strong>混合和铺设过程</strong>：控制混合和铺设过程中的温度和时间，以优化沥青和骨料间的粘附。</li>
+</ul>
+</li>
+</ul>
+<h3 id="57">5.7. 混合设计方法：</h3>
+<ul>
+<li>
+<p>确定最佳的级配和组成需要进行详细的混合设计，包括马歇尔设计法、超级铺路技术等。</p>
+</li>
+<li>
+<p><strong>马歇尔设计法（Marshall Mix Design）</strong></p>
+<ul>
+<li><strong>原理</strong>：通过改变沥青含量，对一系列样本进行压实和测试，找出达到最佳密实度和流动性的沥青含量。</li>
+<li><strong>测试项目</strong>：包括稳定性测试、流值测试、空隙分析等。</li>
+<li><strong>应用</strong>：广泛用于传统沥青混合料的设计，特别是在美国。</li>
+</ul>
+</li>
+<li>
+<p><strong>超级铺路技术（Superpave Mix Design）</strong></p>
+<ul>
+<li><strong>原理</strong>：使用更全面的方法，包括骨料的详细分类和评估，以及沥青的性能级（PG）评定。</li>
+<li><strong>测试项目</strong>：流变测试、动态模量测试、空隙分析等。</li>
+<li><strong>应用</strong>：为应对不同气候条件和交通荷载提供了更为科学的设计方法。</li>
+</ul>
+</li>
+<li>
+<p><strong>Hveem设计法</strong></p>
+<ul>
+<li><strong>原理</strong>：侧重于稳定性和抗水损伤能力的评估，通过调整沥青含量和骨料级配来达到最佳混合物。</li>
+<li><strong>测试项目</strong>：Hveem稳定性测试、空隙分析等。</li>
+<li><strong>应用</strong>：在加州道路建设中被广泛采用。</li>
+</ul>
+</li>
+<li>
+<p><strong>Bailey方法</strong></p>
+<ul>
+<li><strong>原理</strong>：专注于骨料级配的优化，确保粗骨料和细骨料之间有效的互锁和填充。</li>
+<li><strong>应用</strong>：用于解决骨料级配不当引起的问题，如车辙和裂缝。</li>
+</ul>
+</li>
+<li>
+<p><strong>法国设计法（French Mix Design）</strong></p>
+<ul>
+<li><strong>原理</strong>：使用特定的试验方法和设备，如压实轮距试验，评估混合料的性能。</li>
+<li><strong>应用</strong>：在欧洲部分国家使用，特别是针对高性能和重载交通的沥青路面设计。</li>
+</ul>
+</li>
+<li>
+<p><strong>综合考虑因素</strong>：</p>
+<ul>
+<li><strong>交通荷载</strong>：不同的交通强度和车辆类型对混合料的要求不同。</li>
+<li><strong>气候条件</strong>：不同的温度和湿度条件会影响沥青的性能。</li>
+<li><strong>可用材料</strong>：骨料的类型、大小和来源。</li>
+<li><strong>环境影响</strong>：考虑使用再生材料和环保设计方法。</li>
+</ul>
+</li>
+</ul>
+<h2 id="6">6. 沥青铺设技术</h2>
+<h3 id="61">6.1. 铺设设备：</h3>
+<ul>
+<li><strong>沥青搅拌站</strong>：用于生产沥青混合料，将沥青、骨料和其他添加剂按照设计比例混合。</li>
+<li><strong>运输车辆</strong>：用于将热沥青混合料从搅拌站运输到施工现场。</li>
+<li><strong>铺路机（Paver）</strong>：铺设沥青混合料，形成均匀的路面层。铺路机可以控制混合料的宽度和厚度。</li>
+<li><strong>压路机</strong>：用于压实铺设好的沥青，包括初压和终压。常见类型有振动压路机和钢轮压路机。</li>
+<li><strong>毛刷机和清扫机</strong>：清理铺设前的路基，确保其干净、干燥。</li>
+</ul>
+<h3 id="62">6.2. 工艺流程：</h3>
+<ul>
+<li><strong>路面准备</strong>：清理路基，确保无尘土、油污或水分。必要时进行路基处理，如填补坑洼、平整地面。</li>
+<li><strong>材料运输</strong>：将混合好的沥青混合料运输到施工现场。</li>
+<li><strong>铺设</strong>：<ul>
+<li>使用铺路机均匀铺设沥青混合料。</li>
+<li>控制铺设速度和混合料的温度，确保质量。</li>
+</ul>
+</li>
+<li><strong>压实</strong>：<ul>
+<li>初压：在混合料温度较高时进行，通常使用振动压路机。</li>
+<li>终压：在混合料冷却一定程度后进行，以获得平整密实的表面。</li>
+</ul>
+</li>
+<li><strong>接缝处理</strong>：确保新铺设的沥青与旧路面或相邻车道之间的接缝平整且紧密。</li>
+<li><strong>检查和质量控制</strong>：对铺设的路面进行检查，包括厚度、平整度和密实度。</li>
+</ul>
+<h3 id="63">6.3. 施工质量控制：</h3>
+<ul>
+<li><strong>温度管理</strong>：沥青混合料和铺设过程中的温度控制对于确保良好的压实和路面质量至关重要。</li>
+<li><strong>厚度和坡度控制</strong>：确保铺设的沥青混合料达到设计的厚度和坡度。</li>
+<li><strong>密实度测试</strong>：通过现场密实度测试来验证压实质量。</li>
+</ul>
+<h2 id="7">7. 沥青的性能测试</h2>
+<h3 id="71">7.1 实验室评估</h3>
+<p>通过实验室测试评估混合料的物理和机械性能，如稳定性、流动值、空隙率等。</p>
+<ul>
+<li><strong>渗透度测试（Penetration Test）</strong><ul>
+<li><strong>目的</strong>：测定沥青的软度或硬度。</li>
+<li><strong>方法</strong>：在标准条件下（如25°C），测量标准针在一定时间内垂直渗入沥青样品的深度。</li>
+</ul>
+</li>
+<li><strong>软化点测试（Ring and Ball Test）</strong><ul>
+<li><strong>目的</strong>：确定沥青的软化点，即沥青由半固态转变为粘性液态的温度。</li>
+<li><strong>方法</strong>：加热包含沥青样品的环球装置，记录沥青软化并通过标准环球下降的温度。</li>
+</ul>
+</li>
+<li><strong>粘度测试</strong><ul>
+<li><strong>目的</strong>：测量沥青在特定温度下的粘度。</li>
+<li><strong>方法</strong>：使用旋转粘度计或毛细管粘度计，测量沥青在不同温度下的流动性。</li>
+</ul>
+</li>
+<li><strong>延伸度测试（Ductility Test）</strong><ul>
+<li><strong>目的</strong>：测定沥青的延展性。</li>
+<li><strong>方法</strong>：在特定速度和温度下，测量沥青样品在断裂前能被拉长的最大长度。</li>
+</ul>
+</li>
+<li><strong>老化测试（如RTFOT、PAV）</strong><ul>
+<li><strong>目的</strong>：评估沥青随时间老化后的性能变化。</li>
+<li><strong>方法</strong>：通过模拟长期暴露于环境条件下的老化过程，如旋转薄膜烤箱试验（RTFOT）和压力老化容器（PAV）。</li>
+</ul>
+</li>
+</ul>
+<h3 id="72">7.2 路面的性能测试</h3>
+<ol>
+<li>
+<p><strong>马歇尔稳定性和流动性测试</strong></p>
+<ul>
+<li><strong>测试方法</strong>：使用马歇尔测试设备对沥青混合料样本施加垂直荷载，直至发生破坏。</li>
+<li><strong>目的</strong>：评估混合料的最大承载能力和抗变形能力。</li>
+<li><strong>指标</strong>：稳定性（以牛顿或千牛表示）、流动值（以毫米表示）。</li>
+<li><strong>标准</strong>：ASTM D6927</li>
+</ul>
+</li>
+<li>
+<p><strong>密实度测试</strong></p>
+<ul>
+<li><strong>测试方法</strong>：通常使用核密度计或沥青取样进行体积计算。</li>
+<li><strong>目的</strong>：确保路面压实到设计密实度，以提供足够的支撑力和耐久性。</li>
+<li><strong>指标</strong>：密实度百分比。</li>
+<li><strong>标准</strong>：ASTM D2041（理论最大比重）和ASTM D2726（体积密度）。</li>
+</ul>
+</li>
+<li>
+<p><strong>动态剪切流变仪（DSR）测试</strong></p>
+<ul>
+<li><strong>测试方法</strong>：测量沥青粘弹性材料在不同温度和频率下的剪切模量和相位角。</li>
+<li><strong>目的</strong>：评估高温下沥青的粘弹性特性，预测抗车辙能力。</li>
+<li><strong>指标</strong>：复杂剪切模量（G*）和相位角（δ）。</li>
+<li><strong>标准</strong>：AASHTO T315。</li>
+</ul>
+</li>
+<li>
+<p><strong>弯曲梁流变仪（BBR）测试</strong></p>
+<ul>
+<li><strong>测试方法</strong>：测量沥青样品在低温下的弯曲应变。</li>
+<li><strong>测试目的</strong>：评估低温下沥青的脆性和弹性。</li>
+<li><strong>具体指标</strong>：蠕变刚度和蠕变率。</li>
+<li><strong>标准</strong>：AASHTO T313。</li>
+</ul>
+</li>
+<li>
+<p><strong>汉堡轮跡测试</strong></p>
+<ul>
+<li><strong>测试方法</strong>：在控制的温度条件下，使用钢轮对沥青样品进行重复压实。</li>
+<li><strong>测试目的</strong>：模拟交通荷载，评估沥青混合料的耐磨性和抗车辙能力。</li>
+<li><strong>具体指标</strong>：轮跡深度。</li>
+<li><strong>标准</strong>：ASTM D7064。</li>
+</ul>
+</li>
+<li>
+<p><strong>摩擦系数测试</strong></p>
+<ul>
+<li><strong>测试方法</strong>：使用专门的摩擦测试仪器（如British Pendulum Tester）。</li>
+<li><strong>测试目的</strong>：评估路面的抗滑性能，确保行车安全。</li>
+<li><strong>具体指标</strong>：摩擦系数值。</li>
+<li><strong>标准</strong>：ASTM E303。</li>
+</ul>
+</li>
+<li>
+<p><strong>抗裂测试</strong></p>
+<ul>
+<li><strong>测试方法</strong>：使用诸如热裂缝循环测试或冷弯测试。</li>
+<li><strong>测试目的</strong>：评估沥青混合料在热收缩和冷缩条件下的抗裂性能。</li>
+<li><strong>具体指标</strong>：裂缝抵抗指数或裂缝宽度。</li>
+<li><strong>标准</strong>：AASHTO TP125。</li>
+</ul>
+</li>
+</ol>
+<h2 id="8">8. 沥青的老化和耐久性</h2>
+<h3 id="81">8.1. 老化机理：</h3>
+<ul>
+<li>
+<p>沥青老化会变得更加硬化和脆弱，这会导致路面出现裂纹、脱层和其它类型的损伤。老化还会减少沥青的防水性能，增加路面的维护</p>
+</li>
+<li>
+<p><strong>氧化</strong></p>
+<ul>
+<li><strong>过程</strong>：沥青中的烃类化合物与氧气反应，形成更多的极性化合物，如酮、醛和酸。</li>
+<li><strong>影响</strong>：氧化增加了沥青的粘度和刚度，减少了其弹性，使沥青变得更加脆硬。</li>
+<li><strong>因素</strong>：氧化程度受温度、氧气供应和沥青的初始组成影响。</li>
+</ul>
+</li>
+<li>
+<p><strong>挥发</strong></p>
+<ol>
+<li><strong>过程</strong>：沥青中的轻组分（短链烃类和芳香烃）在高温或长期暴露条件下逐渐蒸发。</li>
+<li><strong>影响</strong>：随着轻组分的丧失，沥青的粘度增加，延展性降低。</li>
+<li><strong>因素</strong>：暴露于热量和紫外线下会加速挥发过程。</li>
+</ol>
+</li>
+<li>
+<p><strong>其他因素</strong></p>
+<ul>
+<li><strong>紫外线（UV）辐射</strong>：紫外线可以破坏沥青中的化学键，加速老化过程。</li>
+<li><strong>温度波动</strong>：温度的升降可以加速沥青分子的断裂和重组，加快老化。</li>
+<li><strong>水和盐</strong>：水分可以渗透到沥青中，加速其劣化。盐分（如道路盐）也可能加剧沥青的老化。</li>
+</ul>
+</li>
+</ul>
+<h3 id="82">8.2. 耐久性和维护策略：</h3>
+<ul>
+<li>耐久性：青混合料抵抗环境和交通荷载导致的劣化的能力</li>
+<li><strong>提高沥青耐久性的方法</strong><ol>
+<li><strong>使用高质量材料</strong>：选择高质量的沥青和骨料，确保混合料的优良性能。</li>
+<li><strong>优化混合设计</strong>：采用适当的混合设计方法，如超级铺路技术（Superpave），以确保良好的密实度和骨料间的互锁。</li>
+<li><strong>改性沥青</strong>：使用聚合物改性沥青或其他改性剂来增强沥青的性能，尤其是在抗裂性、抗氧化和抗老化方面。</li>
+<li><strong>控制铺设和压实</strong>：确保沥青在适当的温度下铺设和压实，以避免早期损伤。</li>
+</ol>
+</li>
+<li><strong>沥青路面维护策略</strong><ol>
+<li><strong>定期检查和评估</strong>：定期对路面进行检查和评估，以识别裂缝、坑洼和其他损伤。</li>
+<li><strong>裂缝填充</strong>：对路面裂缝进行及时填充，以防止水分和污染物渗透到基层，造成更严重的损伤。</li>
+<li><strong>表面处理</strong>：如密封层（sealcoating）或薄层覆盖（thin overlay），以保护路面免受紫外线和化学物质的影响。</li>
+<li><strong>重铺</strong>：当路面损伤严重时，进行重铺，移除旧的沥青层并铺设新的沥青层。</li>
+<li><strong>排水维护</strong>：保持良好的排水系统，防止水损伤。</li>
+</ol>
+</li>
+</ul>
+<h3 id="83">8.3 常见损坏类型和原因：</h3>
+<ol>
+<li>
+<p><strong>裂缝</strong></p>
+<ul>
+<li>疲劳裂缝（鳄鱼裂缝）：呈网状分布，由路面结构疲劳引起。</li>
+<li>纵向裂缝：沿道路纵向发展，常由路面缝合不当或沥青收缩引起。</li>
+<li>横向裂缝：跨越路面的裂缝，可能由温度变化或沥青硬化导致。</li>
+<li><strong>原因</strong>：交通负荷、材料老化、温度变化、基层不均匀或设计不当。</li>
+</ul>
+</li>
+<li>
+<p><strong>车辙</strong></p>
+<ul>
+<li><strong>特征</strong>：车轮走过的路面形成明显的凹槽。</li>
+<li><strong>原因</strong>：沥青混合料稳定性不足，重交通负荷，高温软化，或基层结构问题。</li>
+</ul>
+</li>
+<li>
+<p><strong>坑洼</strong></p>
+<ul>
+<li><strong>特征</strong>：路面出现局部的凹陷或洞穴。</li>
+<li><strong>原因</strong>：水损伤（水分渗透和冻融循环）、沥青老化、基层弱点或重载压迫。</li>
+</ul>
+</li>
+<li>
+<p><strong>水损伤</strong></p>
+<ul>
+<li><strong>特征</strong>：路面剥离、破碎或软化。</li>
+<li><strong>原因</strong>：排水不良，水分在路基和沥青层间积累，冻融作用。</li>
+</ul>
+</li>
+<li>
+<p><strong>松散和剥落</strong></p>
+<ul>
+<li><strong>特征</strong>：路面骨料松散或脱落。</li>
+<li><strong>原因</strong>：粘结不良、交通磨损、材料品质差或施工质量问题。</li>
+</ul>
+</li>
+<li>
+<p><strong>泛油和流淌</strong></p>
+<ul>
+<li><strong>特征</strong>：沥青向路面表面渗出，形成粘滑层。</li>
+<li><strong>原因</strong>：沥青混合料中沥青用量过多，高温条件下软化。</li>
+</ul>
+</li>
+</ol>
+<h3 id="84">8.4 维修技术：</h3>
+<ol>
+<li>
+<p>裂缝填充</p>
+<ul>
+<li><strong>操作方法</strong>：清理裂缝，去除松散物质和水分，然后使用专用的填充材料（如沥青乳化剂、热沥青、弹性体改性沥青等）填充裂缝。</li>
+<li><strong>应对问题</strong>：裂缝填充主要用于处理路面的纵向裂缝、横向裂缝和细小的疲劳裂缝，防止水分渗透和路基损伤。</li>
+</ul>
+</li>
+<li>
+<p>覆盖层施工</p>
+<ul>
+<li><strong>操作方法</strong>：在现有路面上铺设一层新的沥青混合料。通常在铺设前需进行路面清理和必要的基层修复。</li>
+<li><strong>应对问题</strong>：适用于处理轻度到中度的路面磨损、裂缝和车辙，恢复路面平整性和提供新的耐磨层。</li>
+</ul>
+</li>
+<li>
+<p>冷再生</p>
+<ul>
+<li><strong>操作方法</strong>：使用铣刨机去除受损的沥青层，然后将其与新的沥青乳化剂或泡沫沥青和骨料混合，再铺设回路面。</li>
+<li><strong>应对问题</strong>：适用于面层老化严重的路面，尤其在资源有限或要求环境友好的情况下。</li>
+</ul>
+</li>
+<li>
+<p>热再生</p>
+<ul>
+<li><strong>操作方法</strong>：类似于冷再生，但在再生过程中加热沥青混合料。这通常在工厂内完成或使用移动热再生设备。</li>
+<li><strong>应对问题</strong>：适用于中度到重度的路面损伤，如大面积的裂缝和车辙。</li>
+</ul>
+</li>
+<li>
+<p>表面封层（Sealcoating）</p>
+<ul>
+<li><strong>操作方法</strong>：在现有路面上施用一层薄薄的沥青基封层材料，有时加入细骨料提高抗滑性。</li>
+<li><strong>应对问题</strong>：用于防止路面老化，保护路面免受水分和化学物质侵蚀，同时提高外观。</li>
+</ul>
+</li>
+<li>
+<p>斑块修补（Patch Repairs）</p>
+<ul>
+<li><strong>操作方法</strong>：去除受损的沥青区域，清理底层，然后填充新的沥青混合料并压实。</li>
+<li><strong>应对问题</strong>：针对局部坑洼、裂缝和破损区域，快速恢复路面完整性。</li>
+</ul>
+</li>
+<li>
+<p>铣刨和重铺</p>
+<ul>
+<li><strong>操作方法</strong>：使用铣刨机移除整个路面的上层或多层沥青，然后铺设新的沥青层。</li>
+<li><strong>应对问题</strong>：适用于路面严重损坏或需要整体结构升级的情况。</li>
+</ul>
+</li>
+</ol>
+<h2 id="9">9. 沥青的可持续性和再生</h2>
+<h3 id="91">9.1. 再生沥青技术：</h3>
+<ul>
+<li>
+<p><strong>热再生（Hot Recycling）</strong>：</p>
+<ul>
+<li>
+<p><strong>过程</strong>：将挖掘的旧沥青材料加热，以软化沥青并使其更易于混合和铺设。</p>
+</li>
+<li>
+<p><strong>应用</strong>：适用于路面局部损坏严重或需要更新的情况。可以在工厂内进行（中央植物再生）或在现场进行（就地热再生）。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>冷再生（Cold Recycling）</strong></p>
+<ul>
+<li><strong>过程</strong>：在室温下，将旧沥青材料与新的沥青乳化剂或泡沫沥青混合。</li>
+<li><strong>优点</strong>：能耗低，不需要高温加热，因此更环保。</li>
+<li><strong>应用</strong>：适用于较轻的路面维修和更新，也可以在工厂或现场进行。</li>
+</ul>
+</li>
+<li>
+<p><strong>全深度再生（Full Depth Recycling）</strong></p>
+<ul>
+<li><strong>过程</strong>：涉及到整个路面结构的再生，包括沥青层和基层。</li>
+<li><strong>技术</strong>：通常使用大型铣刨机从路面挖掘材料，然后与新材料混合再铺设。</li>
+</ul>
+</li>
+<li>
+<p><strong>再生添加剂使用</strong></p>
+<ul>
+<li><strong>目的</strong>：提高再生沥青的质量和性能，如使用软化剂、改性剂等。</li>
+<li><strong>作用</strong>：改善再生材料的可加工性，提高最终混合物的性能。</li>
+</ul>
+</li>
+<li>
+<p><strong>再生沥青混合料设计</strong></p>
+<ul>
+<li><strong>关键</strong>：精确控制新旧材料的比例，确保最终混合物的质量和性能符合设计要求。</li>
+</ul>
+</li>
+<li><strong>环境和经济效益</strong><ul>
+<li><strong>减少废物</strong>：大量减少建筑废物填埋。</li>
+<li><strong>节约资源</strong>：减少对新原材料的需求，节约能源。</li>
+<li><strong>经济效益</strong>：降低材料和运输成本。</li>
+</ul>
+</li>
+<li><strong>挑战和限制</strong><ul>
+<li><strong>质量控制</strong>：确保再生材料的质量符合标准。</li>
+<li><strong>技术限制</strong>：对于高交通量或特殊应用路面，完全依赖再生材料可能存在性能限制。</li>
+</ul>
+</li>
+</ul>
+<h3 id="92">9.2. 环保和可持续性问题：</h3>
+<ul>
+<li><strong>能源消耗</strong>：沥青的生产和加热过程（尤其是热再生）需要大量能源，主要来源于化石燃料。</li>
+<li><strong>温室气体排放</strong>：生产过程中燃烧化石燃料产生二氧化碳等温室气体。</li>
+<li><strong>挥发性有机化合物（VOCs）排放</strong>：在加热和铺设过程中，沥青可能释放VOCs，对空气质量产生影响。</li>
+<li><strong>水资源和土壤污染</strong>：不当处理沥青废料可能导致水资源和土壤污染。</li>
+<li><strong>资源消耗</strong>：沥青生产依赖于石油，是一种非可再生资源。</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+    
+  </body>
+</html>

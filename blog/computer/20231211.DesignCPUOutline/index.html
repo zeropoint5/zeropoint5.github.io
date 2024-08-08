@@ -7,25 +7,29 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
+        <meta name="author" content="王兵">
       
       
       
-        <link rel="next" href="blog/eee/20240103.BasicConceptOfRadarSystem/">
+        <link rel="prev" href="../20231212.BasicCircuitLab/">
       
       
-      <link rel="icon" href="img/logo.png">
+        <link rel="next" href="../20231211.ComputerSysIntro/">
+      
+      
+      <link rel="icon" href="../../../img/logo.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.30">
     
     
       
-        <title>zeropoint5</title>
+        <title>从头设计一个 CPU - zeropoint5</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.3cba04c6.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -44,7 +48,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -69,6 +73,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#1-2" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -79,9 +88,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="." title="zeropoint5" class="md-header__button md-logo" aria-label="zeropoint5" data-md-component="logo">
+    <a href="../../.." title="zeropoint5" class="md-header__button md-logo" aria-label="zeropoint5" data-md-component="logo">
       
-  <img src="img/logo.png" alt="logo">
+  <img src="../../../img/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -98,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              首页
+              从头设计一个 CPU
             
           </span>
         </div>
@@ -179,11 +188,9 @@
         
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
         
   
     
@@ -198,17 +205,21 @@
         
   
   
+    
+  
   
     
     
       
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="blog/eee/20240103.BasicConceptOfRadarSystem/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../eee/20240103.BasicConceptOfRadarSystem/" class="md-tabs__link">
           
   
   笔记
@@ -227,7 +238,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="about/" class="md-tabs__link">
+      <a href="../../../about/" class="md-tabs__link">
         
   
     
@@ -250,9 +261,7 @@
           
             
               
-                
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -263,9 +272,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="zeropoint5" class="md-nav__button md-logo" aria-label="zeropoint5" data-md-component="logo">
+    <a href="../../.." title="zeropoint5" class="md-nav__button md-logo" aria-label="zeropoint5" data-md-component="logo">
       
-  <img src="img/logo.png" alt="logo">
+  <img src="../../../img/logo.png" alt="logo">
 
     </a>
     zeropoint5
@@ -277,17 +286,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -296,7 +298,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -305,23 +306,28 @@
       
   
   
+    
   
   
+  
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -332,7 +338,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             笔记
@@ -384,7 +390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="blog/eee/20240103.BasicConceptOfRadarSystem/" class="md-nav__link">
+      <a href="../../eee/20240103.BasicConceptOfRadarSystem/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -405,7 +411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="blog/eee/20240103.DOAEstimation/" class="md-nav__link">
+      <a href="../../eee/20240103.DOAEstimation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -426,7 +432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="blog/eee/20240102.BasicConceptOfDigitalSignalProcessing/" class="md-nav__link">
+      <a href="../../eee/20240102.BasicConceptOfDigitalSignalProcessing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -493,7 +499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="blog/material/20231221.AsphaltMaterialNotes/" class="md-nav__link">
+      <a href="../../material/20231221.AsphaltMaterialNotes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -519,6 +525,8 @@
                 
   
   
+    
+  
   
   
     
@@ -528,11 +536,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
         
           
           <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
@@ -546,7 +554,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
             计算机
@@ -560,7 +568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="blog/computer/20231212.BasicCircuitLab/" class="md-nav__link">
+      <a href="../20231212.BasicCircuitLab/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -578,10 +586,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="blog/computer/20231211.DesignCPUOutline/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    从头设计一个 CPU
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -590,6 +616,114 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      第1-2周：计算机系统概述
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      第3-4周：数字逻辑与微处理器基础
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      第5-6周：计算机内部组成
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      第7-8周：汇编语言与机器码
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-10cpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      第9-10周：中央处理器（CPU）设计
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      第11-12周：存储系统
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      第13-14周：输入/输出系统
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      第15-16周：集成与调试
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    <span class="md-ellipsis">
+      第17周：课程复习与准备
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18" class="md-nav__link">
+    <span class="md-ellipsis">
+      第18周：最终项目展示
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -602,7 +736,7 @@
   
   
     <li class="md-nav__item">
-      <a href="blog/computer/20231211.ComputerSysIntro/" class="md-nav__link">
+      <a href="../20231211.ComputerSysIntro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -623,7 +757,7 @@
   
   
     <li class="md-nav__item">
-      <a href="blog/computer/20231031.BinaryOpt/" class="md-nav__link">
+      <a href="../20231031.BinaryOpt/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -690,7 +824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="blog/climate/20231129.AtmosphericCirculation/" class="md-nav__link">
+      <a href="../../climate/20231129.AtmosphericCirculation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -711,7 +845,7 @@
   
   
     <li class="md-nav__item">
-      <a href="blog/climate/20231128.QuestionAboutAtmoshpere/" class="md-nav__link">
+      <a href="../../climate/20231128.QuestionAboutAtmoshpere/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -732,7 +866,7 @@
   
   
     <li class="md-nav__item">
-      <a href="blog/climate/20231124.WhyFourSeasons/" class="md-nav__link">
+      <a href="../../climate/20231124.WhyFourSeasons/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -799,7 +933,7 @@
   
   
     <li class="md-nav__item">
-      <a href="blog/carbon/20231226.StateAndTrendsOfCarbonPricing2023Note/" class="md-nav__link">
+      <a href="../../carbon/20231226.StateAndTrendsOfCarbonPricing2023Note/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -820,7 +954,7 @@
   
   
     <li class="md-nav__item">
-      <a href="blog/carbon/20231218.HowToAvoidAClimateDisasterNote/" class="md-nav__link">
+      <a href="../../carbon/20231218.HowToAvoidAClimateDisasterNote/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -841,7 +975,7 @@
   
   
     <li class="md-nav__item">
-      <a href="blog/carbon/20231213.CarbonNeutralityNote/" class="md-nav__link">
+      <a href="../../carbon/20231213.CarbonNeutralityNote/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -877,7 +1011,7 @@
   
   
     <li class="md-nav__item">
-      <a href="about/" class="md-nav__link">
+      <a href="../../../about/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -898,9 +1032,7 @@
             
             
               
-                
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -909,6 +1041,104 @@
   
   
   
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-2" class="md-nav__link">
+    <span class="md-ellipsis">
+      第1-2周：计算机系统概述
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      第3-4周：数字逻辑与微处理器基础
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-6" class="md-nav__link">
+    <span class="md-ellipsis">
+      第5-6周：计算机内部组成
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-8" class="md-nav__link">
+    <span class="md-ellipsis">
+      第7-8周：汇编语言与机器码
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-10cpu" class="md-nav__link">
+    <span class="md-ellipsis">
+      第9-10周：中央处理器（CPU）设计
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-12" class="md-nav__link">
+    <span class="md-ellipsis">
+      第11-12周：存储系统
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-14" class="md-nav__link">
+    <span class="md-ellipsis">
+      第13-14周：输入/输出系统
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      第15-16周：集成与调试
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#17" class="md-nav__link">
+    <span class="md-ellipsis">
+      第17周：课程复习与准备
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#18" class="md-nav__link">
+    <span class="md-ellipsis">
+      第18周：最终项目展示
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -923,131 +1153,63 @@
                   
 
 
-<style>
-body {
-    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
-    line-height: 1.5;
-    color: #3f4d5a;
-    background-color: #ffffff;
-}
+  <h1>从头设计一个 CPU</h1>
 
-h1, h2, h3 {
-    color: #3f4d5a;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-.header {
-    text-align: center;
-    padding: 40px 0 20px;
-}
-
-.header h1 {
-    font-size: 2.8rem;
-    margin-bottom: 0.5rem;
-    color: #3f4d5a;
-}
-
-.header p {
-    font-size: 1.1rem;
-    color: #6c757d;
-}
-
-.projects-section {
-    background-color: #f5f5f5;
-    padding: 30px;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.16);
-    margin-top: 20px;
-}
-
-.projects-section h2 {
-    text-align: center;
-    margin-bottom: 25px;
-    margin-top: 0px;
-    color: #3f4d5a;
-    font-size: 1.5rem;
-    font-weight: 400;
-}
-
-.features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.feature {
-    background-color: #ffffff;
-    border-radius: 5px;
-    padding: 20px;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
-}
-
-.feature:hover {
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.feature h3 {
-    font-size: 1.2rem;
-    margin-top: 0;
-    margin-bottom: 10px;
-    color: #2980b9;
-}
-
-.feature p {
-    margin-bottom: 0;
-    color: #6c757d;
-    font-size: 0.95rem;
-}
-
-.feature a {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
-
-@media (max-width: 768px) {
-    .feature {
-        flex-basis: 100%;
-    }
-}
-</style>
-
-<div class="container">
-    <div class="header">
-        <h1>欢迎来到 1/2 站台</h1>
-        <p>这是一个用于记录一些技术文档的站台，主要包括我的一些笔记和开源项目</p>
-    </div>
-
-    <div class="projects-section">
-        <h2>我的开源项目</h2>
-        <div class="features">
-            <div class="feature">
-                <a href="https://github.com/zeropoint5/whisper-api-tool">
-                    <h3>Whisper 字幕工具</h3>
-                    <p>利用 OpenAI 的 Whisper 模型把音视频转 SRT 字幕的工具</p>
-                </a>
-            </div>
-            <div class="feature">
-                <a href="https://github.com/zeropoint5/ai_make_money">
-                    <h3>AI 领域的创业公司</h3>
-                    <p>一些 AI 领域的创业公司整理</p>
-                </a>
-            </div>
-            <div class="feature">
-                <a href="https://zeropoint5.github.io/arxiv_tracker/">
-                    <h3>ArXiv Tracker</h3>
-                    <p>自动跟踪和总结 arXiv 上特定领域的最新研究论文</p>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
+<p>标签：<a href="../../_tags/制作一个CPU">制作一个CPU</a>, <a href="../../_tags/计算机组成原理">计算机组成原理</a>, <a href="../../_tags/FPGA">FPGA</a>, <a href="../../_tags/CPU">CPU</a></p>
+<p>我想学习一下计算机组成原理，于是叫 chatGPT 教我从头设计一个 CPU 出来，于是便有了下面这个课程计划的大纲：</p>
+<blockquote>
+<p>请设计一个一学期的计算机组成原理课程大纲，最后的课程大作业是用 FPGA 制作一个简易CPU，请根据组成原理大纲安排每周的实验课大纲</p>
+</blockquote>
+<p>下面是 GPT 的回答，我想试试，它到底能不能教会我最终做出一个 CPU 出来。</p>
+<h3 id="1-2">第1-2周：计算机系统概述</h3>
+<ul>
+<li><strong>理论课</strong>：<a href="../20231211.ComputerSysIntro/">计算机系统基本概念，计算机硬件和软件的基础。</a></li>
+<li><strong>实验课</strong>：<a href="../20231212.BasicCircuitLab/">计算机硬件组件认识和基础电路实验。</a></li>
+</ul>
+<h3 id="3-4">第3-4周：数字逻辑与微处理器基础</h3>
+<ul>
+<li><strong>理论课</strong>：数字逻辑设计基础，逻辑门，组合逻辑与时序逻辑。</li>
+<li><strong>实验课</strong>：使用逻辑门构建基本电路，介绍 FPGA 平台。</li>
+</ul>
+<h3 id="5-6">第5-6周：计算机内部组成</h3>
+<ul>
+<li><strong>理论课</strong>：探讨 CPU、内存、输入/输出等核心组件。</li>
+<li><strong>实验课</strong>：在 FPGA 上实现简单的逻辑电路。</li>
+</ul>
+<h3 id="7-8">第7-8周：汇编语言与机器码</h3>
+<ul>
+<li><strong>理论课</strong>：汇编语言基础，指令集架构。</li>
+<li><strong>实验课</strong>：编写简单的汇编程序。</li>
+</ul>
+<h3 id="9-10cpu">第9-10周：中央处理器（CPU）设计</h3>
+<ul>
+<li><strong>理论课</strong>：CPU 架构，指令周期，ALU 设计。</li>
+<li><strong>实验课</strong>：设计并在 FPGA 上实现 ALU。</li>
+</ul>
+<h3 id="11-12">第11-12周：存储系统</h3>
+<ul>
+<li><strong>理论课</strong>：内存层次结构，RAM 与 ROM，缓存原理。</li>
+<li><strong>实验课</strong>：在 FPGA 上实现基本的内存接口。</li>
+</ul>
+<h3 id="13-14">第13-14周：输入/输出系统</h3>
+<ul>
+<li><strong>理论课</strong>：I/O 系统概念，外围设备接口。</li>
+<li><strong>实验课</strong>：设计简单的 I/O 接口并在 FPGA 上实现。</li>
+</ul>
+<h3 id="15-16">第15-16周：集成与调试</h3>
+<ul>
+<li><strong>理论课</strong>：系统集成方法，调试技术。</li>
+<li><strong>实验课</strong>：将之前设计的组件集成到一个 CPU 设计中。</li>
+</ul>
+<h3 id="17">第17周：课程复习与准备</h3>
+<ul>
+<li><strong>理论课</strong>：总结课程内容，复习重点。</li>
+<li><strong>实验课</strong>：项目准备和预演。</li>
+</ul>
+<h3 id="18">第18周：最终项目展示</h3>
+<ul>
+<li><strong>实验课</strong>：展示用 FPGA 制作的简易 CPU。</li>
+</ul>
 
 
 
@@ -1060,8 +1222,6 @@ h1, h2, h3 {
 
 
 
-
-  
 
 
 
@@ -1094,10 +1254,10 @@ h1, h2, h3 {
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs", "search.suggest", "search.highlight"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
     
   </body>

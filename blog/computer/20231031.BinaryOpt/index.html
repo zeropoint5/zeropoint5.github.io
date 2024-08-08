@@ -7,25 +7,29 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
+        <meta name="author" content="王兵">
       
       
       
-        <link rel="next" href="blog/eee/20240103.BasicConceptOfRadarSystem/">
+        <link rel="prev" href="../20231211.ComputerSysIntro/">
       
       
-      <link rel="icon" href="img/logo.png">
+        <link rel="next" href="../../climate/20231129.AtmosphericCirculation/">
+      
+      
+      <link rel="icon" href="../../../img/logo.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.30">
     
     
       
-        <title>zeropoint5</title>
+        <title>二进制表示和运算 - zeropoint5</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.3cba04c6.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.3cba04c6.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -44,7 +48,7 @@
       
     
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -69,6 +73,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -79,9 +88,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="页眉">
-    <a href="." title="zeropoint5" class="md-header__button md-logo" aria-label="zeropoint5" data-md-component="logo">
+    <a href="../../.." title="zeropoint5" class="md-header__button md-logo" aria-label="zeropoint5" data-md-component="logo">
       
-  <img src="img/logo.png" alt="logo">
+  <img src="../../../img/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -98,7 +107,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              首页
+              二进制表示和运算
             
           </span>
         </div>
@@ -179,11 +188,9 @@
         
   
   
-    
   
-  
-    <li class="md-tabs__item md-tabs__item--active">
-      <a href="." class="md-tabs__link">
+    <li class="md-tabs__item">
+      <a href="../../.." class="md-tabs__link">
         
   
     
@@ -198,17 +205,21 @@
         
   
   
+    
+  
   
     
     
       
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="blog/eee/20240103.BasicConceptOfRadarSystem/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../eee/20240103.BasicConceptOfRadarSystem/" class="md-tabs__link">
           
   
   笔记
@@ -227,7 +238,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="about/" class="md-tabs__link">
+      <a href="../../../about/" class="md-tabs__link">
         
   
     
@@ -250,9 +261,7 @@
           
             
               
-                
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" hidden>
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -263,9 +272,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="zeropoint5" class="md-nav__button md-logo" aria-label="zeropoint5" data-md-component="logo">
+    <a href="../../.." title="zeropoint5" class="md-nav__button md-logo" aria-label="zeropoint5" data-md-component="logo">
       
-  <img src="img/logo.png" alt="logo">
+  <img src="../../../img/logo.png" alt="logo">
 
     </a>
     zeropoint5
@@ -277,17 +286,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -296,7 +298,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -305,23 +306,28 @@
       
   
   
+    
   
   
+  
     
     
     
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   <span class="md-ellipsis">
@@ -332,7 +338,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             笔记
@@ -384,7 +390,7 @@
   
   
     <li class="md-nav__item">
-      <a href="blog/eee/20240103.BasicConceptOfRadarSystem/" class="md-nav__link">
+      <a href="../../eee/20240103.BasicConceptOfRadarSystem/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -405,7 +411,7 @@
   
   
     <li class="md-nav__item">
-      <a href="blog/eee/20240103.DOAEstimation/" class="md-nav__link">
+      <a href="../../eee/20240103.DOAEstimation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -426,7 +432,7 @@
   
   
     <li class="md-nav__item">
-      <a href="blog/eee/20240102.BasicConceptOfDigitalSignalProcessing/" class="md-nav__link">
+      <a href="../../eee/20240102.BasicConceptOfDigitalSignalProcessing/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -493,7 +499,7 @@
   
   
     <li class="md-nav__item">
-      <a href="blog/material/20231221.AsphaltMaterialNotes/" class="md-nav__link">
+      <a href="../../material/20231221.AsphaltMaterialNotes/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -519,6 +525,8 @@
                 
   
   
+    
+  
   
   
     
@@ -528,11 +536,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
         
           
           <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
@@ -546,7 +554,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_3">
             <span class="md-nav__icon md-icon"></span>
             计算机
@@ -560,7 +568,7 @@
   
   
     <li class="md-nav__item">
-      <a href="blog/computer/20231212.BasicCircuitLab/" class="md-nav__link">
+      <a href="../20231212.BasicCircuitLab/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -581,7 +589,7 @@
   
   
     <li class="md-nav__item">
-      <a href="blog/computer/20231211.DesignCPUOutline/" class="md-nav__link">
+      <a href="../20231211.DesignCPUOutline/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -602,7 +610,7 @@
   
   
     <li class="md-nav__item">
-      <a href="blog/computer/20231211.ComputerSysIntro/" class="md-nav__link">
+      <a href="../20231211.ComputerSysIntro/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -620,10 +628,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="blog/computer/20231031.BinaryOpt/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    二进制表示和运算
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -632,6 +658,69 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      二进制乘法优化
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      二进制除法优化
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      二进制乘除法比较
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      取整函数
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      浮点数和整数的运算区别
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -690,7 +779,7 @@
   
   
     <li class="md-nav__item">
-      <a href="blog/climate/20231129.AtmosphericCirculation/" class="md-nav__link">
+      <a href="../../climate/20231129.AtmosphericCirculation/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -711,7 +800,7 @@
   
   
     <li class="md-nav__item">
-      <a href="blog/climate/20231128.QuestionAboutAtmoshpere/" class="md-nav__link">
+      <a href="../../climate/20231128.QuestionAboutAtmoshpere/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -732,7 +821,7 @@
   
   
     <li class="md-nav__item">
-      <a href="blog/climate/20231124.WhyFourSeasons/" class="md-nav__link">
+      <a href="../../climate/20231124.WhyFourSeasons/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -799,7 +888,7 @@
   
   
     <li class="md-nav__item">
-      <a href="blog/carbon/20231226.StateAndTrendsOfCarbonPricing2023Note/" class="md-nav__link">
+      <a href="../../carbon/20231226.StateAndTrendsOfCarbonPricing2023Note/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -820,7 +909,7 @@
   
   
     <li class="md-nav__item">
-      <a href="blog/carbon/20231218.HowToAvoidAClimateDisasterNote/" class="md-nav__link">
+      <a href="../../carbon/20231218.HowToAvoidAClimateDisasterNote/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -841,7 +930,7 @@
   
   
     <li class="md-nav__item">
-      <a href="blog/carbon/20231213.CarbonNeutralityNote/" class="md-nav__link">
+      <a href="../../carbon/20231213.CarbonNeutralityNote/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -877,7 +966,7 @@
   
   
     <li class="md-nav__item">
-      <a href="about/" class="md-nav__link">
+      <a href="../../../about/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -898,9 +987,7 @@
             
             
               
-                
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -909,6 +996,59 @@
   
   
   
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      二进制乘法优化
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      二进制除法优化
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      二进制乘除法比较
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      取整函数
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      浮点数和整数的运算区别
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -923,131 +1063,120 @@
                   
 
 
-<style>
-body {
-    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
-    line-height: 1.5;
-    color: #3f4d5a;
-    background-color: #ffffff;
-}
+  <h1>二进制表示和运算</h1>
 
-h1, h2, h3 {
-    color: #3f4d5a;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-.header {
-    text-align: center;
-    padding: 40px 0 20px;
-}
-
-.header h1 {
-    font-size: 2.8rem;
-    margin-bottom: 0.5rem;
-    color: #3f4d5a;
-}
-
-.header p {
-    font-size: 1.1rem;
-    color: #6c757d;
-}
-
-.projects-section {
-    background-color: #f5f5f5;
-    padding: 30px;
-    border-radius: 5px;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.16);
-    margin-top: 20px;
-}
-
-.projects-section h2 {
-    text-align: center;
-    margin-bottom: 25px;
-    margin-top: 0px;
-    color: #3f4d5a;
-    font-size: 1.5rem;
-    font-weight: 400;
-}
-
-.features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-.feature {
-    background-color: #ffffff;
-    border-radius: 5px;
-    padding: 20px;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
-}
-
-.feature:hover {
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.feature h3 {
-    font-size: 1.2rem;
-    margin-top: 0;
-    margin-bottom: 10px;
-    color: #2980b9;
-}
-
-.feature p {
-    margin-bottom: 0;
-    color: #6c757d;
-    font-size: 0.95rem;
-}
-
-.feature a {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-}
-
-@media (max-width: 768px) {
-    .feature {
-        flex-basis: 100%;
-    }
-}
-</style>
-
-<div class="container">
-    <div class="header">
-        <h1>欢迎来到 1/2 站台</h1>
-        <p>这是一个用于记录一些技术文档的站台，主要包括我的一些笔记和开源项目</p>
-    </div>
-
-    <div class="projects-section">
-        <h2>我的开源项目</h2>
-        <div class="features">
-            <div class="feature">
-                <a href="https://github.com/zeropoint5/whisper-api-tool">
-                    <h3>Whisper 字幕工具</h3>
-                    <p>利用 OpenAI 的 Whisper 模型把音视频转 SRT 字幕的工具</p>
-                </a>
-            </div>
-            <div class="feature">
-                <a href="https://github.com/zeropoint5/ai_make_money">
-                    <h3>AI 领域的创业公司</h3>
-                    <p>一些 AI 领域的创业公司整理</p>
-                </a>
-            </div>
-            <div class="feature">
-                <a href="https://zeropoint5.github.io/arxiv_tracker/">
-                    <h3>ArXiv Tracker</h3>
-                    <p>自动跟踪和总结 arXiv 上特定领域的最新研究论文</p>
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
+<p>标签：<a href="../../_tags/CSAPP">CSAPP</a>, <a href="../../_tags/操作系统">操作系统</a></p>
+<h2 id="_1">二进制乘法优化</h2>
+<ol>
+<li><strong>整数乘法指令的速度相对较慢</strong>：大多数机器上，整数乘法指令相对较慢，需要10个或更多的时钟周期，而其他整数操作（如加法、减法、位级操作和移位）只需要1个时钟周期。</li>
+<li><strong>移位和加法</strong>：当乘以2的幂时，可以通过简单地将数字向左移位来实现乘法。例如，乘以4等同于向左移动两位。这种方法也可以扩展到更复杂的乘法，通过将乘法分解为多个移位和加法操作。</li>
+<li><strong>卡拉次乘法（Karatsuba算法）</strong>：这是一种分治算法，用于加速大数的乘法。它将大数分解为较小的部分，递归地应用乘法，然后组合结果。这种方法比传统的长乘法更快，特别是对于非常大的数字。</li>
+<li><strong>快速傅里叶变换（FFT）</strong>：FFT可以用于加速大数的乘法，特别是在数字信号处理中。通过在频域中执行乘法，然后将结果转换回时域，可以实现比传统方法更快的乘法。</li>
+<li><strong>表查找和预计算</strong>：对于固定的乘数，可以预先计算可能的乘积并存储在表中。这样，乘法就可以通过查找表来快速完成，而不是执行实际的乘法操作。</li>
+<li><strong>硬件加速</strong>：在某些系统中，可以使用专用的硬件乘法器来加速乘法操作。这些硬件乘法器通常比软件实现更快，更高效。</li>
+<li><strong>逼近和截断</strong>：在某些应用中，可以接受近似结果。通过逼近乘数或截断中间结果，可以减少所需的计算量。</li>
+<li><strong>并行处理</strong>：在多核处理器或GPU上，可以并行执行多个乘法操作，从而加速整体计算过程。</li>
+</ol>
+<h2 id="_2">二进制除法优化</h2>
+<ul>
+<li>除了和乘法类似的，移位运算、查表，硬件，并行，近似之外，还有一些其他方法</li>
+<li><strong>逆序乘法</strong>：这种方法涉及计算除数的逆（或倒数），然后将被除数乘以这个逆。这在除数是固定的情况下特别有用，因为可以预先计算并存储逆。然后，除法可以通过一次乘法和可能的一些调整来完成。</li>
+<li><strong>SRT除法</strong>：以其发明者Sweeney, Robertson和Tocher命名，这种算法允许在每个步骤中选择多个可能的商，从而加速除法过程。</li>
+</ul>
+<h2 id="_3">二进制乘除法比较</h2>
+<ul>
+<li><strong>二进制乘法</strong>：<ul>
+<li>基本的二进制乘法类似于小学数学中的长乘法，但是使用二进制数字。对于一个 n 位，一个 m 位的数字，这种方法的时间复杂度大约是 O(nm)。</li>
+<li>每一步涉及乘以一个二进制位（0或1），然后将结果移位并累加。</li>
+</ul>
+</li>
+<li>
+<p><strong>二进制除法</strong>：</p>
+<ul>
+<li>基本的二进制除法类似于长除法，但是使用二进制数字。对于 n 位的被除数和 m 位的除数，这种方法的时间复杂度大约是 O(nm)。</li>
+<li>每一步涉及比较、减法和移位操作。</li>
+</ul>
+</li>
+<li>
+<p>在不采用优化的情况下，二进制除法通常比二进制乘法更为复杂和耗时。这是因为除法涉及到更多的比较和条件判断，而乘法则相对直接。此外，除法的中间步骤可能更为复杂，尤其是当涉及到较大数字时。</p>
+</li>
+</ul>
+<h2 id="_4">取整函数</h2>
+<ol>
+<li><strong>round()</strong>：<ul>
+<li>正数：当小数部分大于或等于0.5时，向上取整到最接近的整数。</li>
+<li>负数：当小数部分小于或等于-0.5时，向下取整到最接近的整数。</li>
+</ul>
+</li>
+<li><strong>floor()</strong>：<ul>
+<li>正数：向下取整到最接近的整数，即小于或等于该数的最大整数。</li>
+<li>负数：同样向下取整到最接近的整数。</li>
+</ul>
+</li>
+<li><strong>ceil()</strong>：<ul>
+<li>正数：向上取整到最接近的整数，即大于或等于该数的最小整数。</li>
+<li>负数：同样向上取整到最接近的整数。</li>
+</ul>
+</li>
+<li><strong>trunc()</strong>：<ul>
+<li>正数和负数：直接去掉小数部分，只保留整数部分。</li>
+</ul>
+</li>
+</ol>
+<h2 id="_5">浮点数和整数的运算区别</h2>
+<p>比较了浮点数和整数在二进制层面上进行加减乘除时的主要区别：</p>
+<table>
+<thead>
+<tr>
+<th>特性/操作</th>
+<th>整数</th>
+<th>浮点数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>表示方式</strong></td>
+<td>直接表示数值，可以是二进制、十进制或十六进制等。</td>
+<td>由符号位、指数部分和尾数部分组成，通常遵循IEEE 754标准。</td>
+</tr>
+<tr>
+<td><strong>加法/减法</strong></td>
+<td>直接对数值进行二进制加减。</td>
+<td>需要先对齐指数，然后对尾数进行加减，可能需要规格化和舍入。</td>
+</tr>
+<tr>
+<td><strong>乘法</strong></td>
+<td>直接对数值进行二进制乘法。</td>
+<td>尾数相乘，指数相加，可能需要规格化和舍入。</td>
+</tr>
+<tr>
+<td><strong>除法</strong></td>
+<td>直接对数值进行二进制除法。</td>
+<td>尾数相除，指数相减，可能需要规格化和舍入。</td>
+</tr>
+<tr>
+<td><strong>精度</strong></td>
+<td>精度固定，取决于整数的位数。</td>
+<td>精度有限，取决于尾数的位数，但可以表示非常大或非常小的数。</td>
+</tr>
+<tr>
+<td><strong>范围</strong></td>
+<td>有限的范围，取决于整数的位数。</td>
+<td>非常广泛的范围，由于指数的存在可以表示非常大或非常小的数。</td>
+</tr>
+<tr>
+<td><strong>溢出处理</strong></td>
+<td>可能发生溢出，通常没有内置的处理机制。</td>
+<td>溢出时可能产生无穷大或NaN（不是数字）。</td>
+</tr>
+<tr>
+<td><strong>特殊值</strong></td>
+<td>无特殊值。</td>
+<td>可以表示无穷大、无穷小和NaN。</td>
+</tr>
+</tbody>
+</table>
+<p>总结来说，整数运算在二进制层面上相对简单直接，而浮点数运算则更为复杂，涉及到对指数的处理、尾数的规格化和舍入等。</p>
 
 
 
@@ -1060,8 +1189,6 @@ h1, h2, h3 {
 
 
 
-
-  
 
 
 
@@ -1094,10 +1221,10 @@ h1, h2, h3 {
     </div>
     
     
-    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.tabs", "search.suggest", "search.highlight"], "search": "assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.tabs", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
       
     
   </body>
