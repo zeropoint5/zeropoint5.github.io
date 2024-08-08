@@ -14,10 +14,13 @@ def read_blog_meta():
 
 def process_markdown_files(blog_dir):
     """
-    读取blog目录下的所有markdown文件，提取元数据
+    读取blog目录下的所有markdown文件，提取元数据，并过滤掉以下划线开头的文件夹
     """
     blog_posts = []
-    for root, _, files in os.walk(blog_dir):
+    for root, dirs, files in os.walk(blog_dir):
+        # 过滤掉以下划线开头的文件夹
+        dirs[:] = [d for d in dirs if not d.startswith('_')]
+
         for file in files:
             if file.endswith('.md'):
                 file_path = os.path.join(root, file)
@@ -26,7 +29,7 @@ def process_markdown_files(blog_dir):
                     metadata = extract_metadata(content)
                     if metadata:
                         metadata['file_path'] = os.path.relpath(file_path, blog_dir)
-                        metadata['date'] = file[:8]  # 假设文件名格式为YYYYMMDD.xxx.md
+                        metadata['date'] = file[:8]
                         blog_posts.append(metadata)
                         update_markdown_tags(file_path, metadata)
     return sorted(blog_posts, key=lambda x: x['date'], reverse=True)

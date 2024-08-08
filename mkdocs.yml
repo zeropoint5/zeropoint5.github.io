@@ -1,5 +1,16 @@
 extra:
   generator: false
+extra_javascript:
+- https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+- js/mathjax.js
+markdown_extensions:
+- pymdownx.arithmatex:
+    generic: true
+- pymdownx.highlight:
+    anchor_linenums: true
+- pymdownx.inlinehilite
+- pymdownx.snippets
+- pymdownx.superfences
 nav:
 - 首页: index.md
 - 笔记:
@@ -33,7 +44,7 @@ theme:
   - search.suggest
   - search.highlight
   language: zh
-  logo: img/logo.png
+  logo: assets/logo.png
   name: material
   navigation_depth: 0
   palette:
