@@ -27,7 +27,7 @@ plugins:
 - search
 site_name: zeropoint5
 theme:
-  favicon: img/logo.png
+  favicon: assets/logo.png
   features:
   - navigation.tabs
   - search.suggest
