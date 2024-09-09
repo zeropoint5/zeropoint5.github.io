@@ -106,8 +106,14 @@ h1, h2, h3 {
     </div>
 
     <div class="projects-section">
-        <h2>我的开源项目</h2>
+        <h2>我的项目</h2>
         <div class="features">
+            <div class="feature">
+                <a href="https://inchdance.github.io/">
+                    <h3>寸草舞集</h3>
+                    <p>上海接触即兴社群活动的主要组织方和上海即兴艺术节的联合主办方，这是一个位于上海致力于后现代剧场的创作与演出，并于日常定期开设接触即兴、肢体开发等课程的艺术团体。</p>
+                </a>
+            </div>
             <div class="feature">
                 <a href="https://github.com/zeropoint5/whisper-api-tool">
                     <h3>Whisper 字幕工具</h3>
